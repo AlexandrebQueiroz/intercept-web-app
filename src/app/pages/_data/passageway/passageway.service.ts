@@ -23,12 +23,12 @@ export class PassagemwayService {
     return this.http.get<any[]>(`${this.getUrl()}/fii-vs-sefaz`);
   }
   
-  getConstribuinteCadastrados(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/constribuinte-cadastrados`);
+  getConstribuinteCadastrados(filtro: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.getUrl()}/constribuinte-cadastrados/${filtro?.inicio}/${filtro?.final}`);
   }
 
-  getQuantidadeBlacklist(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/quantidade-blacklist`);
+  getQuantidadeBlacklist(filtro: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.getUrl()}/quantidade-blacklist/${filtro?.inicio}/${filtro?.final}`);
   }
   
   getQuantidadePassagem(): Observable<any[]> {

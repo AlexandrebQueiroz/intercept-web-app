@@ -1,22 +1,45 @@
 
-<nb-card>
-  <nb-card-header class="text-center">Quantidade de Contribuintes Cadastrados - 05/09</nb-card-header>
+<nb-card >
+  <nb-card-header class="text-center">Quantidade Registros de passagem</nb-card-header>
   
   <nb-card-body>
   <nb-accordion>
     <nb-accordion-item>
       <nb-accordion-item-header>
-        Filtros
+        Filtros 
       </nb-accordion-item-header>
       <nb-accordion-item-body>
         
-        <div class="full-name-inputs">
-          <input type="text" nbInput fullWidth placeholder="Inicio">
-          <input type="text" nbInput fullWidth placeholder="Final">
-          <button class="control-button" nbButton>
-            Buscar
-          </button>
-        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+          
+          <div class="full-name-inputs">
+            <input 
+              nbInput 
+              fullWidth 
+              placeholder="Inicio" 
+              [nbDatepicker]="inicioPicker"
+              [formControl]="inicio"  
+              >
+            <nb-datepicker #inicioPicker>
+            </nb-datepicker>
+          
+
+            <input 
+              nbInput 
+              fullWidth 
+              placeholder="final" 
+              [nbDatepicker]="finalPicker"
+              [formControl]="final"  
+              >
+            <nb-datepicker #finalPicker >
+            </nb-datepicker>
+
+            
+            <button class="control-button" nbButton type="submit">
+              Buscar
+            </button>
+          </div>
+        </form>
         
       </nb-accordion-item-body>
     </nb-accordion-item>
@@ -24,7 +47,7 @@
   </nb-card-body>
   
   <nb-card-body>
-    <bar-echart></bar-echart>
+    <bar-echart [data]="data"></bar-echart>
   </nb-card-body>
   
 </nb-card>

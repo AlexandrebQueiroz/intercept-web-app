@@ -18,12 +18,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok(mock.chartFiiVsSefaz)
         }
 
-        case url.includes('/constribuinte-cadastrados') && method === 'POST':{
-          return this.ok()
+        case url.includes('/constribuinte-cadastrados') && method === 'GET':{
+          return this.ok(mock.quantidadeRegistrosdePassagem)
         }
 
-        case url.includes('/register-pass') && method === 'POST':{
-          return this.ok()
+        case url.includes('/quantidade-blacklist') && method === 'GET':{
+          return this.ok(mock.quantidadeBlacklist)
+        }
+
+        case url.includes('/mapa') && method === 'GET':{
+          return this.ok(mock.maps)
         }
 
         default:

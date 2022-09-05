@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -16,6 +16,12 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { fakeBackendProvider } from './@theme/components/service/fakebackend.service';
+
+import { registerLocaleData } from '@angular/common';
+
+import ptBr from '@angular/common/locales/pt';
+import { NbDateFnsDateModule } from '@nebular/date-fns';
+registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,10 +41,18 @@ import { fakeBackendProvider } from './@theme/components/service/fakebackend.ser
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDateFnsDateModule.forRoot({ 
+      format: 'dd/MM/yyyy' ,
+      parseOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
+      formatOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
+    }
+  )
   ],
   bootstrap: [AppComponent],
   providers:[  
-    fakeBackendProvider
+    fakeBackendProvider,
+    { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
 export class AppModule {

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PassagemwayService } from '../passageway.service';
 
 @Component({
@@ -6,23 +7,62 @@ import { PassagemwayService } from '../passageway.service';
   styleUrls: ['./quantidade-passagem.component.scss'],
   templateUrl: './quantidade-passagem.component.html',
 })
-export class QuantidadePassagemComponent  {
+export class QuantidadePassagemComponent implements OnInit  {
 
   public data: any;
-  public loaded = false;
+  public filtro: any;
+  public loading: boolean = false;
+  public submitted: boolean = false;
+
+  public form: FormGroup;
 
   constructor(
     public service: PassagemwayService,
+    public fb: FormBuilder,
     ){
+    this.createForm();
+    this.loadData();
   }
 
   ngOnInit(): void {
-    this.service.getConstribuinteCadastrados().subscribe(
+  }
+
+  public createForm() {
+    this.form = this.fb.group({
+      inicio: new FormControl(new Date()),
+      final: new FormControl(new Date()),
+    });
+  }
+
+  onSubmit(): void {
+    this.loadData();
+  }
+  
+  public loadData(){
+    this.loading = true;
+    this.service.getConstribuinteCadastrados({inicio: this.inicio.value, final: this.final.value}).subscribe(
       data => {
         this.data = data;
-        this.loaded = true;
+        this.loading = false;
       }
     );
+  }
+
+  public getStatus(field: any): string {
+
+     if (field.valid) {
+       return 'success';
+     }
+
+     return 'danger';
+  }
+
+  public get inicio() {
+    return this.form.get('inicio');
+  }
+
+  public get final() {
+    return this.form.get('final');
   }
 
 }

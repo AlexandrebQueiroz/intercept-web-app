@@ -9,21 +9,23 @@
         </nb-accordion-item-header>
         <nb-accordion-item-body>
         
-          <div class="full-name-inputs">
-            <input type="text" nbInput fullWidth placeholder="Inicio">
-            <input type="text" nbInput fullWidth placeholder="Final">
-            <button class="control-button" nbButton>
-              Buscar
-            </button>
-          </div>
-
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+            <div class="full-name-inputs">
+              <input type="text" nbInput fullWidth placeholder="Inicio" [formControl]="inicio"  [status]='getStatus(inicio)'>
+              <input type="text" nbInput fullWidth placeholder="Final" [formControl]="final"  [status]='getStatus(final)'>
+              <button class="control-button" nbButton type="submit">
+                Buscar
+              </button>
+            </div>
+        </form>
+          
         </nb-accordion-item-body>
       </nb-accordion-item>
       </nb-accordion>
   </nb-card-body>
 
   <nb-card-body>
-    <bar-echart></bar-echart>
+    <bar-echart [data]="data"></bar-echart>
   </nb-card-body>
 
 </nb-card>

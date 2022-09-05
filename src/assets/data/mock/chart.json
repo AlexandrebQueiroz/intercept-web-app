@@ -23,6 +23,25 @@
           "data": [10,10,10,10,10,10]
         }
       ]
+    },
+
+    "quantidadeRegistrosdePassagem":{
+      "titulos": ["ANTT", "AGETOP", "CAMINHONETES"],
+      "valores": [700, 300, 100]
+    },
+   
+    "quantidadeBlacklist":{
+      "titulos": ["Placas", "CPFs", "CNPJs"],
+      "valores": [200, 50, 75]
+    },
+
+    "maps":{
+      "center": {"lat": -16.6761553, "lng": -49.2886361},
+      "points": [
+        {"lat": -16.6761553, "lng": -49.2886361},
+        {"lat": -16.4834032, "lng":  -49.0987211},  
+        {"lat": -16.3101019, "lng":  -49.9561421} 
+      ]
     }
 }
 

@@ -17,12 +17,13 @@ export class QuantidadeContribuientesComponent  {
   }
 
   ngOnInit(): void {
-    this.service.getConstribuinteCadastrados().subscribe(
+    this.service.getConstribuinteCadastrados(null).subscribe(
       data => {
         this.data = data;
         this.loaded = true;
       }
     );
   }
+
 
 }
