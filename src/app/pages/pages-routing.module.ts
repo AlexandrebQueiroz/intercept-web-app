@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { AntennaComponent } from './_data/antenna/antenna.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,6 +15,32 @@ const routes: Routes = [{
       path: 'dashboard',
       component: ECommerceComponent,
     },
+    {
+      path: 'antennas',
+      loadChildren: () => import('./_data/antenna/antenna.module')
+        .then(m => m.AntennaModule),
+    },
+    {
+      path: 'passageway',
+      loadChildren: () => import('./_data/passageway/passageway.module')
+        .then(m => m.PassagewayModule),
+    },
+    {
+      path: 'alerts',
+      loadChildren: () => import('./_data/alert/alert.module')
+        .then(m => m.AlertModule),
+    },
+    {
+      path: 'map',
+      loadChildren: () => import('./_data/map/map.module')
+        .then(m => m.MapModule),
+    },
+    {
+      path: 'rules',
+      loadChildren: () => import('./_data/rules/rules.module')
+        .then(m => m.RulesModule),
+    },
+
     {
       path: 'iot-dashboard',
       component: DashboardComponent,
@@ -54,11 +81,6 @@ const routes: Routes = [{
         .then(m => m.ChartsModule),
     },
     {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
-    },
-    {
       path: 'tables',
       loadChildren: () => import('./tables/tables.module')
         .then(m => m.TablesModule),
@@ -70,7 +92,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'passageway',
       pathMatch: 'full',
     },
     {

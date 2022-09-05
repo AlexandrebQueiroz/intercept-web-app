@@ -1,6 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+
+    "baseUrl":"./",
+    "paths":{
+      "@environments/*": ["./src/environments/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@mocks/*": ["./src/assets/data/mocks/*"],
+    },
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "module": "es2020",
     "outDir": "./dist/out-tsc",

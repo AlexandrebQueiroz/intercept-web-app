@@ -1,0 +1,29 @@
+{
+  "chartFiiVsSefaz" : 
+    {
+      "labels": [
+        "SEFAZ JAN",
+        "FII JAN",
+        "SEFAZ FEV",
+        "FII FEV",
+        "SEFAZ MAR",
+        "FII MAR"
+      ],
+      "datasets": [
+        {
+          "label": "MDF-E" ,
+          "data": [10,10,10,10,10,10]
+        }, 
+        {
+          "label": "CT-E",
+          "data": [10,10,10,10,10,10]
+        },
+        {
+          "label": "NF-E",
+          "data": [10,10,10,10,10,10]
+        }
+      ]
+    }
+}
+
+
