@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbCardModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
 
 import { AntennaRoutingModule } from './antenna-routing.module';
 import { AntennaComponent } from './antenna.component';
+import { AntennaService } from './antenna.service';
 
 @NgModule({
   imports: [
@@ -11,11 +13,15 @@ import { AntennaComponent } from './antenna.component';
     NbCardModule,
     ReactiveFormsModule,
     AntennaRoutingModule,
+    NbInputModule,
+    NbButtonModule,
+    CommonModule,
   ],
   declarations: [
     AntennaComponent,
   ],
   providers: [
+    AntennaService,
   ],
 })
 export class AntennaModule { }

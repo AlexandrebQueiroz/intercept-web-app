@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
-import { GridPanelSeriesComponent } from '@swimlane/ngx-charts';
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
 import { MapService } from './map.service';
 

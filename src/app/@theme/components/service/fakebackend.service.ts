@@ -29,6 +29,26 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case url.includes('/mapa') && method === 'GET':{
           return this.ok(mock.maps)
         }
+        
+        case url.includes('/regras') && method === 'GET':{
+          return this.ok(mock.regras)
+        }
+
+        case url.includes('/registro-passagem') && method === 'GET':{
+          return this.ok(mock.quantidadeRegistrospassagens)
+        }
+
+        case url.includes('/registro-passagem-primeira-passagem`') && method === 'GET':{
+          return this.ok(mock.quantidadePrimeiraPassagem)
+        }
+
+        case url.includes('/enviados') && method === 'GET':{
+          return this.ok(mock.quantidadeEnviados)
+        }
+
+        case url.includes('/antenna/save') && method === 'POST':{
+          return this.ok()
+        }
 
         default:
           return next.handle(request);

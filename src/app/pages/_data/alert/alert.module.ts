@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbCardModule } from '@nebular/theme';
+import { NbDateFnsDateModule } from '@nebular/date-fns';
+import { NbMomentDateModule } from '@nebular/moment';
+import { NbAccordionModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule, NbSpinnerModule } from '@nebular/theme';
 import { CustomChartsModule } from '../../_component/custom-charts.module';
 import { AlertRoutingModule } from './alert-routing.module';
 import { AlertComponent } from './alert.component';
+import { AlertService } from './alert.service';
 
 @NgModule({
   imports: [
@@ -12,11 +15,19 @@ import { AlertComponent } from './alert.component';
     ReactiveFormsModule,
     AlertRoutingModule,
     CustomChartsModule,
+    NbAccordionModule,
+    NbDatepickerModule,
+    NbMomentDateModule,
+    NbDateFnsDateModule.forChild({format: 'dd MM yyyy'}),
+    NbSpinnerModule,
+    NbInputModule,
+    NbButtonModule,
   ],
   declarations: [
     AlertComponent,
   ],
   providers: [
+    AlertService
   ],
 })
 export class AlertModule { }

@@ -42,7 +42,207 @@
         {"lat": -16.4834032, "lng":  -49.0987211},  
         {"lat": -16.3101019, "lng":  -49.9561421} 
       ]
-    }
+    },
+
+    "regras":[
+      {
+        "id":"1",
+        "nome":"Regra B",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"ativo"
+      },
+      {
+        "id":"2",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"3",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"4",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"5",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"6",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"7",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"8",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"9",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"10",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"11",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"12",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"13",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      },
+      {
+        "id":"14",
+        "nome":"Regra A",
+        "tipo":"NFE",
+        "data": {
+          "inicio": "01/12/2022",
+          "final":  "01/12/2023"
+        },
+        "status":"inativo"
+      }
+
+    ],
+
+    "quantidadeRegistrospassagens" : [
+      { "name": "Bebida", "value": 1200 },
+      { "name": "Produtores", "value": 1230 },
+      { "name": "BL-NFE CA", "value": 1301 },
+      { "name": "Feijão", "value": 3000 },
+      { "name": "Dist. Combustivel", "value": 120 },
+      { "name": "BL-DESV ROTA", "value": 2800 },
+      { "name": "Couro", "value": 2500 },
+      { "name": "Usina SH - ZF", "value": 1130 },
+      { "name": "BL Cerveja", "value": 1310 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 }
+    ],
+    
+    "quantidadePrimeiraPassagem" : [
+      { "name": "Bebida", "value": 3200 },
+      { "name": "Produtores", "value": 2230 },
+      { "name": "BL-NFE CA", "value": 1301 },
+      { "name": "Feijão", "value": 4000 },
+      { "name": "Dist. Combustivel", "value": 120 },
+      { "name": "BL-DESV ROTA", "value": 2800 },
+      { "name": "Couro", "value": 1700 },
+      { "name": "Usina SH - ZF", "value": 1130 },
+      { "name": "BL Cerveja", "value": 1310 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 }
+    ],
+
+    "quantidadeEnviados" : [
+      { "name": "Bebida", "value": 100 },
+      { "name": "Produtores", "value": 2330 },
+      { "name": "BL-NFE CA", "value": 2301 },
+      { "name": "Feijão", "value": 1000 },
+      { "name": "Dist. Combustivel", "value": 2120 },
+      { "name": "BL-DESV ROTA", "value": 2100 },
+      { "name": "Couro", "value": 1900 },
+      { "name": "Usina SH - ZF", "value": 1830 },
+      { "name": "BL Cerveja", "value": 1710 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 },
+      { "name": "Outros", "value": 8940 }
+    
+    
+    ]
+    
+
+
 }
 
 

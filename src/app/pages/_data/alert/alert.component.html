@@ -1,12 +1,37 @@
+<nb-card>
+    <nb-accordion>
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Filtros
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+            <div class="full-name-inputs">
+              <input type="text" nbInput fullWidth placeholder="Inicio" [formControl]="inicio"   [nbDatepicker]="inicioPicker">
+              <nb-datepicker #inicioPicker>  </nb-datepicker>
+
+              <input type="text" nbInput fullWidth placeholder="Final" [formControl]="final"  [nbDatepicker]="finalPicker">
+              <nb-datepicker #finalPicker>  </nb-datepicker>
+              <button class="control-button" nbButton type="submit">
+                Buscar
+              </button>
+            </div>
+        </form>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+</nb-card>
+
+
 
 <div class="row">
 
   <div class="col-12">
     <nb-card>
-      <nb-card-header>Quantidade de Registros de passagens - 15/08/2017 15:57</nb-card-header>
+      <nb-card-header>Quantidade de Registros de passagens</nb-card-header>
 
       <nb-card-body>
-        <bar-echart></bar-echart>
+        <d3-bar-chart [data]=dataRegistroPassagem></d3-bar-chart>
       </nb-card-body>
     
     </nb-card>
@@ -14,10 +39,10 @@
 
   <div class="col-12">
     <nb-card>
-      <nb-card-header>Quantidade de Registros na Blacklist - 18/08/2017</nb-card-header>
+      <nb-card-header>Quantidade de Registros na Blacklist</nb-card-header>
 
       <nb-card-body>
-        <bar-echart></bar-echart>
+        <d3-bar-chart [data]=dataAlertasPrimeiraPassagem></d3-bar-chart>
       </nb-card-body>
     
     </nb-card>
@@ -25,10 +50,10 @@
 
   <div class="col-12">
     <nb-card>
-      <nb-card-header>Quantidade de Registros na Blacklist - 18/08/2017</nb-card-header>
+      <nb-card-header>Quantidade de Registros na Blacklist</nb-card-header>
 
       <nb-card-body>
-        <bar-echart></bar-echart>
+        <d3-bar-chart [data]=enviados></d3-bar-chart>
       </nb-card-body>
     
     </nb-card>

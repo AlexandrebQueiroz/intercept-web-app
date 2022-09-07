@@ -11,8 +11,11 @@
         
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
             <div class="full-name-inputs">
-              <input type="text" nbInput fullWidth placeholder="Inicio" [formControl]="inicio"  [status]='getStatus(inicio)'>
-              <input type="text" nbInput fullWidth placeholder="Final" [formControl]="final"  [status]='getStatus(final)'>
+              <input type="text" nbInput fullWidth placeholder="Inicio" [formControl]="inicio"  [status]='getStatus(inicio)' [nbDatepicker]="inicioPicker">
+              <nb-datepicker #inicioPicker>  </nb-datepicker>
+
+              <input type="text" nbInput fullWidth placeholder="Final" [formControl]="final"  [status]='getStatus(final)' [nbDatepicker]="finalPicker">
+              <nb-datepicker #finalPicker>  </nb-datepicker>
               <button class="control-button" nbButton type="submit">
                 Buscar
               </button>
