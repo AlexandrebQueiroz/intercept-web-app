@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbAccordionModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbIconModule, NbInputModule, NbSelectModule } from '@nebular/theme';
+import { NbAccordionModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbSelectModule } from '@nebular/theme';
 import { RulesAddComponent } from './add/rules-add.component';
 import { RulesEditComponent } from './edit/rules-edit.component';
 
@@ -23,6 +23,7 @@ import { RulesToViewComponent } from './to-view/rules-to-view.component';
     RulesRoutingModule,
     NbSelectModule,
     NbDatepickerModule,
+    NbCheckboxModule,
   ],
   declarations: [
     RulesComponent,

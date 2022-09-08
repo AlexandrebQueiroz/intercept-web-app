@@ -46,7 +46,7 @@ registerLocaleData(ptBr)
       format: 'dd/MM/yyyy' ,
       parseOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
       formatOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
-    }
+    },
   )
   ],
   bootstrap: [AppComponent],

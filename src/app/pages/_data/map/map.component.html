@@ -1,3 +1,5 @@
+<button nbButton ghost (click)="showLegenda()" style="padding: 0;" type="button" >Legenda</button>
+ 
 <nb-card>
   <nb-card-body>
 
@@ -12,6 +14,7 @@
         [clickable]="true"
         [label]='point?.label'
         (mapMouseover)="showDialog(point)"
+        [options]="{icon: point.tipo }"
         *ngFor="let point of data.points"
       >
       </map-marker>
@@ -19,4 +22,3 @@
     
   </nb-card-body>
 </nb-card>
-  

@@ -35,7 +35,7 @@
           <th class="col-4">Nome</th>
           <th class="col-1">Tipo</th>
           <th colspan="2" class="col-3 text-center">Data</th>
-          <th class="col-1">Status</th>
+          <th class="col-1">Ativo</th>
           <th colspan="3" class="col-2 text-center">Ações</th>
         </tr>
 
@@ -50,12 +50,14 @@
 
       <tbody>
         <tr *ngFor="let item of data" >
-          <td>{{item?.id}}</td>
-          <td>{{item?.nome}}</td>
-          <td>{{item?.tipo}}</td>
-          <td>{{item?.data?.inicio}}</td>
-          <td>{{item?.data?.final}}</td>
-          <td>{{item?.status}}</td>
+          <td class="align-middle">{{item?.id}}</td>
+          <td class="align-middle">{{item?.nome}}</td>
+          <td class="align-middle">{{item?.tipo}}</td>
+          <td class="align-middle">{{item?.data?.inicio}}</td>
+          <td class="align-middle">{{item?.data?.final}}</td>
+          <td class="align-middle">
+            <nb-checkbox [checked]="item?.status" disabled></nb-checkbox>
+          </td>
           <td><button nbButton fullWidth outline status="basic" (click)="view(item)"> <nb-icon icon="eye-outline"></nb-icon> </button></td>
           <td><button nbButton fullWidth outline status="warning"  (click)="duplicate(item)"> <nb-icon icon="copy-outline"></nb-icon> </button></td>
           <td><button nbButton fullWidth outline status="danger" (click)="delete(item)"> <nb-icon icon="trash-2-outline"></nb-icon> </button></td>

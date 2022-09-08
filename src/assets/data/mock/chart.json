@@ -38,15 +38,42 @@
     "maps":{
       "center": {"lat": -16.6761553, "lng": -49.2886361},
       "points": [
-        {"lat": -16.6761553, "lng": -49.2886361},
-        {"lat": -16.4834032, "lng":  -49.0987211},  
-        {"lat": -16.3101019, "lng":  -49.9561421} 
+        {"lat": -16.7414031, "lng": -49.1910956, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" , "tipo": 1},
+        {"lat": -16.8525914, "lng": -49.028055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 1},  
+        {"lat": -16.969589, "lng": -48.958055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 1} ,
+
+        
+        {"lat": -16.769589, "lng": -48.758055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 2},
+         {"lat": -16.569589, "lng": -48.858055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 2},
+         {"lat": -16.459589, "lng": -48.558055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
+         {"lat": -16.759589, "lng": -48.858055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
+         {"lat": -16.859589, "lng": -48.458055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
+         {"lat": -16.359589, "lng": -48.558055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
+         {"lat": -16.959589, "lng": -48.158055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} 
       ]
     },
-
     "regras":[
       {
         "id":"1",
+        "nome":"Regra A",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": true
+      },
+
+      {
+        "id":"2",
         "nome":"Regra B",
         "descricao": "exemplo de descricao",
         "importancia": 1,
@@ -61,8 +88,113 @@
           "inicio": "01/01/2022",
           "final":  "31/12/2022"
         },
-        "status":"ativo"
+        "status": false
+      },
+
+      {
+        "id":"3",
+        "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": false
+      },
+
+      {
+        "id":"3",
+        "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": false
       }
+      ,
+
+      {
+        "id":"3",
+        "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": false
+      }
+      ,
+
+      {
+        "id":"3",
+        "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": false
+      }
+      ,
+
+      {
+        "id":"3",
+        "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
+        "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
+        "data": {
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
+        },
+        "status": false
+      }
+
+
+
+
+
+
+
     ],
 
     "quantidadeRegistrospassagens" : [
