@@ -43,13 +43,11 @@ export class RulesAddComponent {
     this.sqlOperations.push({id:7, value: '<', title: 'Começa com (%string)', type: 'string'});
     this.sqlOperations.push({id:8, value: '<', title: 'Termina com (string%)', type: 'string'});
     this.sqlOperations.push({id:9, value: '<', title: 'Contém (%)', type: 'string'});
-
   }
 
   compareById(v1: any, v2: any): boolean {
     return v1.id === v2.id;
   }
-
 
   public createForm() {
 
@@ -86,7 +84,7 @@ export class RulesAddComponent {
       ]),
 
       dataFinal: new FormControl(
-        new Date(), [
+        null, [
         Validators.required,
       ]),
       

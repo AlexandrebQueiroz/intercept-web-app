@@ -26,7 +26,7 @@
     </div>
 
     <div class="col">
-    </div>
+   
     <table class="table table-hover table-striped table-bordered">
       <thead class="thead-light">
         
@@ -56,12 +56,13 @@
           <td>{{item?.data?.inicio}}</td>
           <td>{{item?.data?.final}}</td>
           <td>{{item?.status}}</td>
-          <td><button nbButton fullWidth outline status="warning" (click)="edit()"> <nb-icon icon="edit-outline"></nb-icon> </button></td>
-          <td><button nbButton fullWidth outline status="basic"  (click)="duplicate()"> <nb-icon icon="copy-outline"></nb-icon> </button></td>
-          <td><button nbButton fullWidth outline status="danger" (click)="delete()"> <nb-icon icon="trash-2-outline"></nb-icon> </button></td>
+          <td><button nbButton fullWidth outline status="basic" (click)="view(item)"> <nb-icon icon="eye-outline"></nb-icon> </button></td>
+          <td><button nbButton fullWidth outline status="warning"  (click)="duplicate(item)"> <nb-icon icon="copy-outline"></nb-icon> </button></td>
+          <td><button nbButton fullWidth outline status="danger" (click)="delete(item)"> <nb-icon icon="trash-2-outline"></nb-icon> </button></td>
         </tr>
 
       </tbody>
     </table>
+     </div>
   </nb-card-body>
 </nb-card>

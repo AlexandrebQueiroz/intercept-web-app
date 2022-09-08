@@ -48,144 +48,21 @@
       {
         "id":"1",
         "nome":"Regra B",
+        "descricao": "exemplo de descricao",
+        "importancia": 1,
+        "menorEsforco": 10,
+        "produto": "Feijão",
+        "dataInicio": "01/01/2022",
+        "dataFinal": "31/12/2022",
         "tipo":"NFE",
+        "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+        "valor": "exemplo de valor",
         "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
+          "inicio": "01/01/2022",
+          "final":  "31/12/2022"
         },
         "status":"ativo"
-      },
-      {
-        "id":"2",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"3",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"4",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"5",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"6",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"7",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"8",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"9",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"10",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"11",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"12",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"13",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
-      },
-      {
-        "id":"14",
-        "nome":"Regra A",
-        "tipo":"NFE",
-        "data": {
-          "inicio": "01/12/2022",
-          "final":  "01/12/2023"
-        },
-        "status":"inativo"
       }
-
     ],
 
     "quantidadeRegistrospassagens" : [

@@ -37,6 +37,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case url.includes('/regras') && method === 'POST':{
           return this.ok()
         }
+        
+        case url.includes('/regras') && method === 'DELETE':{
+          return this.ok()
+        }
 
         case url.includes('/registro-passagem') && method === 'GET':{
           return this.ok(mock.quantidadeRegistrospassagens)

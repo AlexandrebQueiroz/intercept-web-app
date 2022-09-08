@@ -22,5 +22,8 @@ export class RulesService {
     return this.http.post<any>(`${this.getUrl()}/regras`, t);
   }
 
+  delete(id: any): Observable<any> {
+    return this.http.delete<any>(`${this.getUrl()}/regras/${id}`);
+  }
 
 }

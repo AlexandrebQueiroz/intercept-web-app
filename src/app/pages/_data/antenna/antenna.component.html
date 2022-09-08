@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-4">
-          <label class="label">Codigo Local:</label> 
+          <label class="label">Codigo Local:*</label> 
           <input type="text" nbInput fullWidth placeholder="Codigo Local" [formControl]="codigoLocal" [status]='getStatus(codigoLocal)'>
         </div>
 
@@ -71,7 +71,7 @@
   <nb-card-body>
     <div class="offset-8 col-4">
       <label class="label">Enviar:</label>
-      <button nbButton outline type="submit"  (click)="enviar()" fullWidth status="primary">Enviar</button>
+      <button nbButton outline type="submit"  (click)="enviar()" fullWidth status="success">Adicionar</button>
     </div>
   </nb-card-body>
 </nb-card>

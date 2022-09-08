@@ -26,16 +26,16 @@ export class RulesComponent {
     this.router.navigate(['./add'],  {relativeTo: this.activeRoute});
   }
 
-  edit(data: any){
-
+  view(data: any){
+    this.router.navigate(['./to-view', {data: JSON.stringify(data), action: 'to-view'}], {relativeTo: this.activeRoute});
   }
   
   delete(data: any){
-
+    this.router.navigate(['./to-view' , {data: JSON.stringify(data), action: 'delete'}],  {relativeTo: this.activeRoute});
   }
 
   duplicate(data: any){
-
+    this.router.navigate(['./edit', {data: JSON.stringify(data)} ],  {relativeTo: this.activeRoute});
   }
 
 }

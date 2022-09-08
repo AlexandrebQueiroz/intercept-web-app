@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import moment from 'moment';
-import { runInThisContext } from 'vm';
 import { RulesService } from '../rules.service';
+import moment from 'moment';
 
 @Component({
-  selector: 'rules-edit',
-  templateUrl: './rules-edit.component.html',
+  selector: 'rules-to-view',
+  templateUrl: './rules-to-view.component.html',
 })
-export class RulesEditComponent {
+export class RulesToViewComponent {
   
-  public sqlOperations = [];
   public form: FormGroup;
   public data: any;
-  public submitted = false;
+  public action: string;
+  public accent = 'basic';
 
   constructor(
     public service: RulesService,
@@ -22,10 +21,15 @@ export class RulesEditComponent {
     private activeRoute: ActivatedRoute,
     private router: Router,
   ) {
-    this.data = JSON.parse(this.activeRoute.snapshot.paramMap.get('data'));
-    this.createForm(this.data);
-    this.prepareOperations();
 
+    this.data = JSON.parse(this.activeRoute.snapshot.paramMap.get('data'));
+    this.action = this.activeRoute.snapshot.paramMap.get('action');
+    
+    if( this.action === 'delete'){
+      this.accent = 'danger'
+    }
+
+    this.createForm(this.data);
   }
 
   
@@ -36,106 +40,64 @@ export class RulesEditComponent {
 
     this.form = this.fb.group({
 
+      id: new FormControl(
+        {value: data?.id}, [
+      ]),
+
       nome: new FormControl(
-        data?.nome, [
-          Validators.required,
+        {value: data?.nome, disabled: true}, [
       ]),
 
       descricao: new FormControl(
-        data?.descricao, [
-          Validators.required,
+        {value: data?.descricao, disabled: true}, [
       ]),
       
       tipo: new FormControl(
-        data?.tipo, [
-          Validators.required,
+        {value: data?.tipo, disabled: true}, [
       ]),
       
       importancia: new FormControl(
-        data?.importancia, [
-          Validators.required,
+        {value: data?.importancia, disabled: true}, [
       ]),
     
       menorEsforco: new FormControl(
-        data?.menorEsforco , [
-          Validators.required,
+        {value: data?.menorEsforco, disabled: true}, [
       ]),
 
       dataInicio: new FormControl(
-        dataInicio, [
-          Validators.required,
+        {value: dataInicio, disabled: true}, [
       ]),
 
       dataFinal: new FormControl(
-        dataFinal, [
-          Validators.required,
+        {value: dataFinal, disabled: true}, [
       ]),
       
       produto: new FormControl(
-        data?.produto, [
-          Validators.required,
+        {value: data?.produto, disabled: true}, [
       ]),
       
       operador: new FormControl(
-        data?.operador, [
-          Validators.required,
+        {value: data?.operador, disabled: true}, [
       ]),
 
       valor: new FormControl(
-        data?.valor, [
-          Validators.required,
+        {value: data?.valor, disabled: true}, [
       ]),
 
     });
   }
+  
+  public delete(): void {
 
-  compareById(v1: any, v2: any): boolean {
-    return v1.id === v2.id;
-  }
-
-  public onSubmit(): void {
-    this.submitted = true;
-    if (this.form.invalid) {
-      return;
-    }
-
-    this.service.save(this.form.value).subscribe(
+    this.service.delete(this.form.value.id).subscribe(
       ()=>{
         this.router.navigate(['../'],  {relativeTo: this.activeRoute});
       }
     );
-
   }
-  
-  prepareOperations(){
-    this.sqlOperations.push({id:1, value: '<', title: 'Menor que (<)', type: 'int'});
-    this.sqlOperations.push({id:2, value: '>', title: 'Maior que (>)', type: 'int'});
 
-    this.sqlOperations.push({id:3, value: '=>', title: 'Maior igual que (=>)', type: 'int'});
-    this.sqlOperations.push({id:4, value: '<=', title: 'Menor igual que (=<)', type: 'int'});
-    this.sqlOperations.push({id:5, value: '=', title: 'Igual (=)', type: 'int'});
-
-    this.sqlOperations.push({id:6, value: '!=', title: 'Diferente (!=)', type: 'string'});
-    this.sqlOperations.push({id:7, value: '<', title: 'Começa com (%string)', type: 'string'});
-    this.sqlOperations.push({id:8, value: '<', title: 'Termina com (string%)', type: 'string'});
-    this.sqlOperations.push({id:9, value: '<', title: 'Contém (%)', type: 'string'});
-  }
-  
   public voltar(): void {
     this.router.navigate(['../'],  {relativeTo: this.activeRoute});
-  }
-
-  public getStatus(field: any): string {
-
-    if (!this.submitted ) {
-      return 'basic';
-     }
-
-     if (field.valid) {
-       return 'success';
-     }
-
-     return 'danger';
   }
 
   public get nome() {
@@ -177,6 +139,5 @@ export class RulesEditComponent {
   public get valor() {
     return this.form.get('valor');
   }
-
 
 }
