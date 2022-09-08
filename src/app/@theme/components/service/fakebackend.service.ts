@@ -34,6 +34,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok(mock.regras)
         }
 
+        case url.includes('/regras') && method === 'POST':{
+          return this.ok()
+        }
+
         case url.includes('/registro-passagem') && method === 'GET':{
           return this.ok(mock.quantidadeRegistrospassagens)
         }
@@ -49,6 +53,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case url.includes('/antenna/save') && method === 'POST':{
           return this.ok()
         }
+        
 
         default:
           return next.handle(request);

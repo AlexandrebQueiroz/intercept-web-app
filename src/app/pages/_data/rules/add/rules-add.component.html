@@ -6,105 +6,109 @@
 
 <nb-card>
   <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
+      
+      <div class="row pb-3">
+        <div class="col-8">
+          <label class="label">Nome*:</label>
+          <input type="text" [formControl]="nome" [status]='getStatus(nome)' nbInput fullWidth placeholder="Nome">
+        </div>
 
-    <div class="row pb-3">
-      <div class="col-4">
-        <label class="label">Nome:</label>
-        <input type="text" nbInput fullWidth placeholder="Nome">
-      </div>
-    </div>
-
-    <div class="row pb-3">
-      <div class="col-8">
-        <label class="label">Descrição:</label>
-        <input type="text" nbInput fullWidth placeholder="Descrição">
-      </div>
-
-      <div class="col-4">
-        <label class="label">Tipo:</label>
-        <nb-select fullWidth selected="1" placeholder="Tipo">
-          <nb-option value="1">Selecione</nb-option>
-          <nb-option value="1">MDFE</nb-option>
-          <nb-option value="2">NFE</nb-option>
-          <nb-option value="2">CTE</nb-option>
-        </nb-select>
-      </div>
-    </div>
-
-
-    <div class="row pb-3">
-      <div class="col-3">
-        <label class="label">Importância:</label>
-        <nb-select fullWidth selected="1" placeholder="Tipo">
-          <nb-option value="1">1</nb-option>
-          <nb-option value="2">2</nb-option>
-          <nb-option value="3">3</nb-option>
-          <nb-option value="4">4</nb-option>
-          <nb-option value="5">5</nb-option>
-          <nb-option value="6">6</nb-option>
-          <nb-option value="7">7</nb-option>
-          <nb-option value="8">8</nb-option>
-          <nb-option value="9">9</nb-option>
-          <nb-option value="10">10</nb-option>
-        </nb-select>
-      </div>
-    
-      <div class="col-3">
-        <label class="label">Menor esforço:</label>
-        <nb-select fullWidth selected="1" placeholder="Tipo">
-          <nb-option value="1">1</nb-option>
-          <nb-option value="2">2</nb-option>
-          <nb-option value="3">3</nb-option>
-          <nb-option value="4">4</nb-option>
-          <nb-option value="5">5</nb-option>
-          <nb-option value="6">6</nb-option>
-          <nb-option value="7">7</nb-option>
-          <nb-option value="8">8</nb-option>
-          <nb-option value="9">9</nb-option>
-          <nb-option value="10">10</nb-option>
-        </nb-select>
+        
+        <div class="col-4">
+          <label class="label">Tipo*:</label>
+          <nb-select fullWidth  [formControl]="tipo" [status]='getStatus(tipo)' selected="1" placeholder="Tipo">
+            <nb-option value="1">Selecione</nb-option>
+            <nb-option value="1">MDFE</nb-option>
+            <nb-option value="2">NFE</nb-option>
+            <nb-option value="2">CTE</nb-option>
+          </nb-select>
+        </div>
       </div>
 
-      <div class="col-3">
-        <label class="label">Data de validade incio:</label>
-        <input nbInput fullWidth [nbDatepicker]="inicioPicker">
-        <nb-datepicker #inicioPicker></nb-datepicker>
+      <div class="row pb-3">
+        <div class="col-12">
+          <label class="label">Descrição*:</label>
+          <textarea type="text" [formControl]="descricao" [status]='getStatus(descricao)' nbInput fullWidth placeholder="Descrição"></textarea>
+        </div>
+      </div>
+
+
+      <div class="row pb-3">
+        <div class="col-3">
+          <label class="label">Importância*:</label>
+          <nb-select fullWidth placeholder="Tipo" [formControl]="importancia" [status]='getStatus(importancia)' >
+            <nb-option value="1">1</nb-option>
+            <nb-option value="2">2</nb-option>
+            <nb-option value="3">3</nb-option>
+            <nb-option value="4">4</nb-option>
+            <nb-option value="5">5</nb-option>
+            <nb-option value="6">6</nb-option>
+            <nb-option value="7">7</nb-option>
+            <nb-option value="8">8</nb-option>
+            <nb-option value="9">9</nb-option>
+            <nb-option value="10">10</nb-option>
+          </nb-select>
+        </div>
+      
+        <div class="col-3">
+          <label class="label">Menor esforço*:</label>
+          <nb-select fullWidth selected="1" placeholder="Tipo" [formControl]="menorEsforco" [status]='getStatus(menorEsforco)'>
+            <nb-option value="1">1</nb-option>
+            <nb-option value="2">2</nb-option>
+            <nb-option value="3">3</nb-option>
+            <nb-option value="4">4</nb-option>
+            <nb-option value="5">5</nb-option>
+            <nb-option value="6">6</nb-option>
+            <nb-option value="7">7</nb-option>
+            <nb-option value="8">8</nb-option>
+            <nb-option value="9">9</nb-option>
+            <nb-option value="10">10</nb-option>
+          </nb-select>
+        </div>
+
+        <div class="col-3">
+          <label class="label">Data de validade (Inicio)*:</label>
+          <input nbInput fullWidth [nbDatepicker]="inicioPicker" placeholder="Inicio" [formControl]="dataInicio" [status]='getStatus(dataInicio)'>
+          <nb-datepicker #inicioPicker></nb-datepicker>
+        </div>
+        
+        <div class="col-3">
+          <label class="label">Data de validade (Final)*:</label>
+          <input nbInput fullWidth [nbDatepicker]="finalPicker"  placeholder="Fim" [formControl]="dataFinal" [status]='getStatus(dataFinal)'>
+          <nb-datepicker #finalPicker></nb-datepicker>
+        </div>
+      </div>
+
+      <div class="row pb-3">
+        <div class="col-4">
+          <label class="label">Produto*:</label>
+          <input type="text" nbInput fullWidth placeholder="Produto" [formControl]="produto" [status]='getStatus(produto)'>
+        </div>
+        
+        <div class="col-4">
+          <label class="label">Operador*:</label>
+          <nb-select fullWidth selected="1" placeholder="Tipo" [compareWith]="compareById"  [formControl]="operador" [status]='getStatus(operador)'>
+            <nb-option *ngFor="let op of sqlOperations" [value]=op>{{op.title}}</nb-option>
+          </nb-select>
+        </div>
+
+        <div class="col-4">
+          <label class="label">Valor*:</label>
+          <input type="text" nbInput fullWidth placeholder="Valor"  [formControl]="valor" [status]='getStatus(valor)'>
+        </div>
       </div>
       
-      <div class="col-3">
-        <label class="label">Data de validade final:</label>
-        <input nbInput fullWidth [nbDatepicker]="finalPicker">
-        <nb-datepicker #finalPicker></nb-datepicker>
-      </div>
-    </div>
+      <hr/>
 
-    <div class="row pb-3">
-      <div class="col-4">
-        <label class="label">Produto:</label>
-        <input type="text" nbInput fullWidth placeholder="Produto">
+      <div class="row pb-3" >
+        <div class="col-4">
+          <button type="button" nbButton outline fullWidth status="basic" (click)="voltar()">Voltar</button>
+        </div>
+        <div class="offset-4 col-4">
+          <button type="submit" nbButton outline fullWidth status="primary">Confirmar</button>
+        </div>
       </div>
-      
-      <div class="col-4">
-        <label class="label">Operador:</label>
-        <nb-select fullWidth selected="1" placeholder="Tipo" [(selected)]="operador" [compareWith]="compareById">
-          <nb-option *ngFor="let op of sqlOperations" [value]=op>{{op.title}}</nb-option>
-        </nb-select>
-      </div>
-
-      <div class="col-4">
-        <label class="label">Valor:</label>
-        <input type="text" nbInput fullWidth placeholder="Valor">
-      </div>
-    </div>
-    
-    <hr/>
-
-    <div class="row pb-3" >
-      <div class="offset-8 col-4">
-        <label class="label">Confirmar:</label>
-        <button nbButton outline fullWidth status="primary">Confirmar</button>
-      </div>
-    </div>
-
+    </form>
   </nb-card-body>
 </nb-card>

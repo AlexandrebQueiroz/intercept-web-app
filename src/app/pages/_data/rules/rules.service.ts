@@ -18,4 +18,9 @@ export class RulesService {
     return this.http.get<any[]>(`${this.getUrl()}/regras`);
   }
 
+  save(t: any): Observable<any> {
+    return this.http.post<any>(`${this.getUrl()}/regras`, t);
+  }
+
+
 }
