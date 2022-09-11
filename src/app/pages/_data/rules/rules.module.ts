@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NbAccordionModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbSelectModule } from '@nebular/theme';
 import { RulesAddComponent } from './add/rules-add.component';
+import { RulesDeleteComponent } from './delete/rules-delete.component';
+import { RulesDuplicateComponent } from './duplicate/rules-duplicate.component';
 import { RulesEditComponent } from './edit/rules-edit.component';
 
 import { RulesRoutingModule } from './rules-routing.module';
 import { RulesComponent } from './rules.component';
 import { RulesService } from './rules.service';
-import { RulesToViewComponent } from './to-view/rules-to-view.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { RulesToViewComponent } from './to-view/rules-to-view.component';
     RulesComponent,
     RulesAddComponent,
     RulesEditComponent,
-    RulesToViewComponent,
+    RulesDuplicateComponent,
+    RulesDeleteComponent,  
   ],
   providers: [
     RulesService,

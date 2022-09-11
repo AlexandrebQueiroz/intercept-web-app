@@ -12,14 +12,34 @@
         </nb-accordion-item-header>
         <nb-accordion-item-body>
         
-          <div class="full-name-inputs">
-            <input type="text" nbInput fullWidth placeholder="Inicio">
-            <input type="text" nbInput fullWidth placeholder="Final">
-            <button class="control-button" nbButton>
-              Buscar
-            </button>
-          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
+            
+            <div class="full-name-inputs">
+              <input 
+                  nbInput 
+                  fullWidth 
+                  placeholder="Inicio" 
+                  [nbDatepicker]="inicioPicker"
+                  [formControl]="inicio" 
+                  >
+                <nb-datepicker #inicioPicker>
+                </nb-datepicker>
 
+                <input 
+                  nbInput 
+                  fullWidth 
+                  placeholder="Final" 
+                  [nbDatepicker]="finalPicker"
+                  [formControl]="final" 
+                  >
+                <nb-datepicker #finalPicker>
+                </nb-datepicker>
+
+                <button class="control-button" nbButton type="submit">
+                  Buscar
+                </button>
+              </div>
+          </form>
         </nb-accordion-item-body>
       </nb-accordion-item>
       </nb-accordion>

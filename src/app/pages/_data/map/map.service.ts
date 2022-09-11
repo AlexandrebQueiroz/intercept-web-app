@@ -15,6 +15,6 @@ export class MapService {
   }
   
   getMap(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/mapa`);
+    return this.http.get<any[]>(`${environment.antena.listar}`);
   }
 }

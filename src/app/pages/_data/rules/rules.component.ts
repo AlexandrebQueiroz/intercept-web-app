@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import { RulesService } from './rules.service';
 
 @Component({
@@ -21,21 +22,19 @@ export class RulesComponent {
       }) 
   }
 
-
   add(){
     this.router.navigate(['./add'],  {relativeTo: this.activeRoute});
   }
 
-  view(data: any){
-    this.router.navigate(['./to-view', {data: JSON.stringify(data), action: 'to-view'}], {relativeTo: this.activeRoute});
+  edit(data: any){
+    this.router.navigate(['./edit' , {data: JSON.stringify(data)} ],  {relativeTo: this.activeRoute});
   }
   
-  delete(data: any){
-    this.router.navigate(['./to-view' , {data: JSON.stringify(data), action: 'delete'}],  {relativeTo: this.activeRoute});
-  }
-
   duplicate(data: any){
-    this.router.navigate(['./edit', {data: JSON.stringify(data)} ],  {relativeTo: this.activeRoute});
+    this.router.navigate(['./duplicate', {data: JSON.stringify(data)} ],  {relativeTo: this.activeRoute});
   }
 
+  delete(data: any){
+    this.router.navigate(['./delete' , {data: JSON.stringify(data)}],  {relativeTo: this.activeRoute});
+  }
 }

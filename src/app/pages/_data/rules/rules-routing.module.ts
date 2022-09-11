@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RulesAddComponent } from './add/rules-add.component';
+import { RulesDeleteComponent } from './delete/rules-delete.component';
+import { RulesDuplicateComponent } from './duplicate/rules-duplicate.component';
 import { RulesEditComponent } from './edit/rules-edit.component';
 
 import { RulesComponent } from './rules.component';
-import { RulesToViewComponent } from './to-view/rules-to-view.component';
 
 const routes: Routes = [
   {
@@ -20,9 +21,14 @@ const routes: Routes = [
     component: RulesEditComponent,
   },
   {
-    path: 'to-view',
-    component: RulesToViewComponent,
+    path: 'duplicate',
+    component: RulesDuplicateComponent,
   },
+  {
+    path: 'delete',
+    component: RulesDeleteComponent,
+  },
+
 ];
 
 @NgModule({

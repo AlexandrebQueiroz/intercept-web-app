@@ -58,8 +58,8 @@
           <td class="align-middle">
             <nb-checkbox [checked]="item?.status" disabled></nb-checkbox>
           </td>
-          <td><button nbButton fullWidth outline status="basic" (click)="view(item)"> <nb-icon icon="eye-outline"></nb-icon> </button></td>
-          <td><button nbButton fullWidth outline status="warning"  (click)="duplicate(item)"> <nb-icon icon="copy-outline"></nb-icon> </button></td>
+          <td><button nbButton fullWidth outline status="warning" (click)="edit(item)"> <nb-icon icon="edit-outline"></nb-icon> </button></td>
+          <td><button nbButton fullWidth outline status="primary" (click)="duplicate(item)"> <nb-icon icon="copy-outline"></nb-icon> </button></td>
           <td><button nbButton fullWidth outline status="danger" (click)="delete(item)"> <nb-icon icon="trash-2-outline"></nb-icon> </button></td>
         </tr>
 

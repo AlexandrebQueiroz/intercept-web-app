@@ -1,23 +1,22 @@
 <nb-card>
   <nb-card-header>
-    Adicionar Regra
+    Deletar Regra
   </nb-card-header>
 </nb-card>
 
-<nb-card accent="success">
+<nb-card accent="danger">
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
       
       <div class="row pb-3">
         <div class="col-8">
           <label class="label">Nome:*</label>
-          <input type="text" [formControl]="nome" [status]='getStatus(nome)' nbInput fullWidth placeholder="Nome">
+          <input type="text" [formControl]="nome" nbInput fullWidth placeholder="Nome" [status]='getStatus(nome)' [disabled]="true">
         </div>
 
-        
         <div class="col-4">
           <label class="label">Tipo:*</label>
-          <nb-select fullWidth  [formControl]="tipo" [status]='getStatus(tipo)' placeholder="Tipo">
+          <nb-select fullWidth  [formControl]="tipo" placeholder="Tipo" [status]='getStatus(tipo)'>
             <nb-option [value]='null'>Selecione</nb-option>
             <nb-option [value]="'MDFE'">MDFE</nb-option>
             <nb-option [value]="'NFE'">NFE</nb-option>
@@ -29,7 +28,7 @@
       <div class="row pb-3">
         <div class="col-12">
           <label class="label">Descrição:*</label>
-          <textarea type="text" [formControl]="descricao" [status]='getStatus(descricao)' nbInput fullWidth placeholder="Descrição"></textarea>
+          <textarea type="text" [formControl]="descricao" nbInput fullWidth placeholder="Descrição" [status]='getStatus(descricao)'></textarea>
         </div>
       </div>
 
@@ -37,33 +36,33 @@
       <div class="row pb-3">
         <div class="col-3">
           <label class="label">Importância:*</label>
-          <nb-select fullWidth placeholder="Tipo" [formControl]="importancia" [status]='getStatus(importancia)' >
-            <nb-option value="1">1</nb-option>
-            <nb-option value="2">2</nb-option>
-            <nb-option value="3">3</nb-option>
-            <nb-option value="4">4</nb-option>
-            <nb-option value="5">5</nb-option>
-            <nb-option value="6">6</nb-option>
-            <nb-option value="7">7</nb-option>
-            <nb-option value="8">8</nb-option>
-            <nb-option value="9">9</nb-option>
-            <nb-option value="10">10</nb-option>
+          <nb-select fullWidth placeholder="Tipo" [formControl]="importancia" [status]='getStatus(importancia)'>
+            <nb-option [value]="1">1</nb-option>
+            <nb-option [value]="2">2</nb-option>
+            <nb-option [value]="3">3</nb-option>
+            <nb-option [value]="4">4</nb-option>
+            <nb-option [value]="5">5</nb-option>
+            <nb-option [value]="6">6</nb-option>
+            <nb-option [value]="7">7</nb-option>
+            <nb-option [value]="8">8</nb-option>
+            <nb-option [value]="9">9</nb-option>
+            <nb-option [value]="10">10</nb-option>
           </nb-select>
         </div>
       
         <div class="col-3">
           <label class="label">Menor esforço:*</label>
           <nb-select fullWidth selected="1" placeholder="Tipo" [formControl]="menorEsforco" [status]='getStatus(menorEsforco)'>
-            <nb-option value="1">1</nb-option>
-            <nb-option value="2">2</nb-option>
-            <nb-option value="3">3</nb-option>
-            <nb-option value="4">4</nb-option>
-            <nb-option value="5">5</nb-option>
-            <nb-option value="6">6</nb-option>
-            <nb-option value="7">7</nb-option>
-            <nb-option value="8">8</nb-option>
-            <nb-option value="9">9</nb-option>
-            <nb-option value="10">10</nb-option>
+            <nb-option [value]="1">1</nb-option>
+            <nb-option [value]="2">2</nb-option>
+            <nb-option [value]="3">3</nb-option>
+            <nb-option [value]="4">4</nb-option>
+            <nb-option [value]="5">5</nb-option>
+            <nb-option [value]="6">6</nb-option>
+            <nb-option [value]="7">7</nb-option>
+            <nb-option [value]="8">8</nb-option>
+            <nb-option [value]="9">9</nb-option>
+            <nb-option [value]="10">10</nb-option>
           </nb-select>
         </div>
 
@@ -83,7 +82,7 @@
       <div class="row pb-3">
         <div class="col-4">
           <label class="label">Produto:*</label>
-          <input type="text" nbInput fullWidth placeholder="Produto" [formControl]="produto" [status]='getStatus(produto)'>
+          <input type="text" nbInput fullWidth placeholder="Tipo" [formControl]="produto" [status]='getStatus(produto)'>
         </div>
         
         <div class="col-4">
@@ -97,17 +96,6 @@
           <label class="label">Valor:*</label>
           <input type="text" nbInput fullWidth placeholder="Valor"  [formControl]="valor" [status]='getStatus(valor)'>
         </div>
-        
-        <div class="col-4">
-          <label class="label">NCM:*</label>
-          <input type="text" nbInput fullWidth placeholder="NCM"  [formControl]="ncm" [status]='getStatus(ncm)'>
-        </div>
-
-        <div class="col-4">
-          <label class="label">Percurso:*</label>
-          <input type="text" nbInput fullWidth placeholder="Percurso"  [formControl]="percurso" [status]='getStatus(percurso)'>
-        </div>
-
       </div>
       
       <hr/>
@@ -116,10 +104,12 @@
         <div class="col-4">
           <button type="button" nbButton outline fullWidth status="basic" (click)="voltar()">Voltar</button>
         </div>
+
         <div class="offset-4 col-4">
-          <button type="submit" nbButton outline fullWidth status="success">Adicionar</button>
+          <button type="submit" nbButton outline fullWidth status="danger">Deletar</button>
         </div>
       </div>
-    </form>
+  </form>
+
   </nb-card-body>
 </nb-card>

@@ -35,23 +35,23 @@
       "valores": [200, 50, 75]
     },
 
-    "maps":{
-      "center": {"lat": -16.6761553, "lng": -49.2886361},
+    "antena":{
       "points": [
-        {"lat": -16.7414031, "lng": -49.1910956, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" , "tipo": 1},
-        {"lat": -16.8525914, "lng": -49.028055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 1},  
-        {"lat": -16.969589, "lng": -48.958055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 1} ,
-
-        
-        {"lat": -16.769589, "lng": -48.758055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 2},
-         {"lat": -16.569589, "lng": -48.858055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 2},
-         {"lat": -16.459589, "lng": -48.558055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
-         {"lat": -16.759589, "lng": -48.858055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
-         {"lat": -16.859589, "lng": -48.458055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
-         {"lat": -16.359589, "lng": -48.558055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} ,
-         {"lat": -16.959589, "lng": -48.158055, "orgao":"ANTT", "municipio":"UBERABA", "sentido":"UBERABA/UBERLANDIA" ,"tipo": 3} 
+        { 
+          "latitude": -16.8525914, 
+          "longitude": -49.028055, 
+          "faixas":"BRASILIA/FORMOSA", 
+          "dataHoraInsercao":"20/04/2022 18:40:41"
+        },
+        { 
+          "latitude": -16.9525914, 
+          "longitude": -49.128055, 
+          "faixas":"BRASILIA/FORMOSA", 
+          "dataHoraInsercao":"20/04/2022 18:40:41"
+        }    
       ]
     },
+
     "regras":[
       {
         "id":"1",

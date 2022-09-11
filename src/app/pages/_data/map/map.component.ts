@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, TemplateRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NbDialogService, NbWindowControlButtonsConfig, NbWindowService } from '@nebular/theme';
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
 import { MapWindowComponent } from './map-window/map-window.component';
@@ -11,11 +11,7 @@ import { MapService } from './map.service';
 })
 export class MapComponent {
 
-  public tipoIConeAntenaUm = 'assets/icon/radio/radio-outline-red-48-48.svg';
-  public tipoIConeAntenaDois = 'assets/icon/radio/radio-outline-yellow-48-48.svg'
-  public tipoIconeFiscal = 'assets/icon/pin/pin-outline-black.svg';
-
-  public data: any;
+  public coordenadas: any[];
   public loaded: boolean = false;
 
   constructor(
@@ -25,25 +21,8 @@ export class MapComponent {
     ){
 
     this.service.getMap().subscribe(
-      data => {
-        this.data = data;
-        this.data?.points?.forEach(point => {
-
-          if(point.tipo === 1){
-            point.tipo = this.tipoIConeAntenaUm
-          }
-
-          else if (point.tipo === 2){
-            point.tipo = this.tipoIConeAntenaDois
-          }
-
-          else if (point.tipo === 3){
-            point.tipo = this.tipoIconeFiscal
-          }
-
-
-        });
-        this.loaded = true;
+      coordenadas => {
+        this.coordenadas = coordenadas;
         }   
       );
   }

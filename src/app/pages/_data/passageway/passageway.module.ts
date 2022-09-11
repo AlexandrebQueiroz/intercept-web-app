@@ -29,6 +29,7 @@ import { QuantidadePassagemComponent } from './quantidade-passagem/quantidade-pa
     NbDatepickerModule,
     NbMomentDateModule,
     NbDateFnsDateModule.forChild({format: 'dd MM yyyy'}),
+    NbSpinnerModule,
   ],
   declarations: [
     PassagewayComponent,

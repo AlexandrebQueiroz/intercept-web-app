@@ -32,12 +32,12 @@ export class QuantidadeBlacklistComponent implements OnInit {
     this.form = this.fb.group({
 
       inicio: new FormControl(
-        null, [
+        new Date(), [
         Validators.required,
       ]),
 
       final: new FormControl(
-        null, [
+        new Date(), [
         Validators.required,
       ]),
 

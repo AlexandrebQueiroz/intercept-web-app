@@ -1,20 +1,19 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
+import moment from 'moment';
 import { RulesService } from '../rules.service';
 
 @Component({
-  selector: 'rules-add',
-  templateUrl: './rules-add.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'rules-delete',
+  templateUrl: './rules-delete.component.html',
 })
-export class RulesAddComponent {
-
-  public data: any[];
+export class RulesDeleteComponent {
+  
   public sqlOperations = [];
-
   public form: FormGroup;
+  public data: any;
   public submitted = false;
 
   constructor(
@@ -23,17 +22,93 @@ export class RulesAddComponent {
     public fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    ) {
+  ) {
+    this.data = JSON.parse(this.activeRoute.snapshot.paramMap.get('data'));
+    this.createForm(this.data);
+    this.prepareOperations();
 
-    this.service.get().subscribe(
-      data => {
-        this.data = data;
-      }) 
-
-      this.prepareOperations();
-      this.createForm();
   }
 
+  
+  public createForm(data: any) {
+
+    const dataInicio = moment(data?.dataInicio, "DD/MM/YYYY").toDate();
+    const dataFinal = moment(data?.dataFinal, "DD/MM/YYYY").toDate();
+
+    this.form = this.fb.group({
+
+      nome: new FormControl(
+        data?.nome, [
+          Validators.required,
+      ]),
+
+      descricao: new FormControl(
+        data?.descricao, [
+          Validators.required,
+      ]),
+      
+      tipo: new FormControl(
+        data?.tipo, [
+          Validators.required,
+      ]),
+      
+      importancia: new FormControl(
+        data?.importancia, [
+          Validators.required,
+      ]),
+    
+      menorEsforco: new FormControl(
+        data?.menorEsforco , [
+          Validators.required,
+      ]),
+
+      dataInicio: new FormControl(
+        dataInicio, [
+          Validators.required,
+      ]),
+
+      dataFinal: new FormControl(
+        dataFinal, [
+          Validators.required,
+      ]),
+      
+      produto: new FormControl(
+        data?.produto, [
+          Validators.required,
+      ]),
+      
+      operador: new FormControl(
+        data?.operador, [
+          Validators.required,
+      ]),
+
+      valor: new FormControl(
+        data?.valor, [
+          Validators.required,
+      ]),
+
+    });
+  }
+
+  compareById(v1: any, v2: any): boolean {
+    return v1.id === v2.id;
+  }
+
+  public onSubmit(): void {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.service.save(this.form.value).subscribe(
+      ()=>{
+        this.toastrService.success(`Sucesso`, `O registro foi Deletado`);
+        this.router.navigate(['../'],  {relativeTo: this.activeRoute});
+      }
+    );
+
+  }
+  
   prepareOperations(){
     this.sqlOperations.push({id:1, value: '<', title: 'Menor que (<)', type: 'int'});
     this.sqlOperations.push({id:2, value: '>', title: 'Maior que (>)', type: 'int'});
@@ -47,92 +122,7 @@ export class RulesAddComponent {
     this.sqlOperations.push({id:8, value: '<', title: 'Termina com (string%)', type: 'string'});
     this.sqlOperations.push({id:9, value: '<', title: 'Contém (%)', type: 'string'});
   }
-
-  compareById(v1: any, v2: any): boolean {
-    return v1.id === v2.id;
-  }
-
-  public createForm() {
-
-    this.form = this.fb.group({
-
-      nome: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-      descricao: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-      
-      tipo: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-      
-      importancia: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-    
-      menorEsforco: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-      dataInicio: new FormControl(
-        new Date(), [
-        Validators.required,
-      ]),
-
-      dataFinal: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-      
-      produto: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-      
-      operador: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-      valor: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-      ncm: new FormControl(
-        null, [
-      ]),
-
-      percurso: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-    });
-  }
-
-  public onSubmit(): void {
-    this.submitted = true;
-    if (this.form.invalid) {
-      return;
-    }
-
-    this.service.save(this.form.value).subscribe(
-      ()=>{
-        this.toastrService.success(`Sucesso`, `O registro foi gravado`);
-        this.router.navigate(['../'],  {relativeTo: this.activeRoute});
-      }
-    );
-
-  }
-
+  
   public voltar(): void {
     this.router.navigate(['../'],  {relativeTo: this.activeRoute});
   }
@@ -188,14 +178,6 @@ export class RulesAddComponent {
 
   public get valor() {
     return this.form.get('valor');
-  }
-  
-  public get ncm() {
-    return this.form.get('ncm');
-  } 
-
-  public get percurso() {
-    return this.form.get('percurso');
   }
 
 

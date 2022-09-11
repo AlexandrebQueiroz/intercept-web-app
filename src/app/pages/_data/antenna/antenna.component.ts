@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NbToastrService } from '@nebular/theme';
 import { AntennaService } from './antenna.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class AntennaComponent {
   public submitted = false;
 
   constructor( 
+    private toastrService: NbToastrService,
     public service: AntennaService,
     public fb: FormBuilder,
     ){
@@ -51,6 +53,7 @@ export class AntennaComponent {
       ()=>{
         this.form.reset();
         this.data = [];
+        this.toastrService.success(`Sucesso`, `O registro foi gravado`);
       }
     );
   }

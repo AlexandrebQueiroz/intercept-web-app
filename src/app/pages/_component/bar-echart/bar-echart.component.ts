@@ -43,7 +43,7 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: this.data.titulos,
+            data: this.data?.titulos,
             
             axisTick: {
               alignWithLabel: true,
@@ -85,7 +85,7 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
             name: 'Score',
             type: 'bar',
             barWidth: '60%',
-            data: this.data.valores,
+            data: this.data?.valores,
           },
         ],
       };

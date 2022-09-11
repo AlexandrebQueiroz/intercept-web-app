@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import moment from 'moment';
-import { runInThisContext } from 'vm';
 import { RulesService } from '../rules.service';
 
 @Component({
@@ -15,14 +15,18 @@ export class RulesEditComponent {
   public form: FormGroup;
   public data: any;
   public submitted = false;
+  public action = '';
 
   constructor(
+    private toastrService: NbToastrService,
     public service: RulesService,
     public fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
   ) {
     this.data = JSON.parse(this.activeRoute.snapshot.paramMap.get('data'));
+    this.action = this.activeRoute.snapshot.paramMap.get('action');
+    
     this.createForm(this.data);
     this.prepareOperations();
 
@@ -99,8 +103,13 @@ export class RulesEditComponent {
       return;
     }
 
+    if(this.action === 'edit'){
+      //adicionar o id aqui
+    }
+
     this.service.save(this.form.value).subscribe(
       ()=>{
+        this.toastrService.success(`Sucesso`, `O registro foi Editado`);
         this.router.navigate(['../'],  {relativeTo: this.activeRoute});
       }
     );
