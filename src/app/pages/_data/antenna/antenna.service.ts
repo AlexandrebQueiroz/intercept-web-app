@@ -6,16 +6,12 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class AntennaService {
 
-  getUrl(): string {
-    return `${environment.baseUrl}`;
-  }
-
   constructor(public http: HttpClient) {
 
   }
 
   save(t: any[]): Observable<any> {
-    return this.http.post<any>(`${this.getUrl()}/antenna/save`, t);
+    return this.http.post<any>(`${environment.antena.salvar}`, t);
   }
 
 }

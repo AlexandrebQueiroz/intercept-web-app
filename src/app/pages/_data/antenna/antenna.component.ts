@@ -12,6 +12,7 @@ export class AntennaComponent {
   public form: FormGroup;
   public data = [];
   public submitted = false;
+  public loading = false;
 
   constructor( 
     private toastrService: NbToastrService,
@@ -49,10 +50,12 @@ export class AntennaComponent {
   }
 
   public enviar(): void {
+    this.loading = true;
     this.service.save(this.data).subscribe(
       ()=>{
         this.form.reset();
         this.data = [];
+        this.loading = false;
         this.toastrService.success(`Sucesso`, `O registro foi gravado`);
       }
     );

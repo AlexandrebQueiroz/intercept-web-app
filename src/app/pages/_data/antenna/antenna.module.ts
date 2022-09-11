@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbInputModule, NbSpinnerModule } from '@nebular/theme';
 
 import { AntennaRoutingModule } from './antenna-routing.module';
 import { AntennaComponent } from './antenna.component';
@@ -16,6 +16,7 @@ import { AntennaService } from './antenna.service';
     NbInputModule,
     NbButtonModule,
     CommonModule,
+    NbSpinnerModule,
   ],
   declarations: [
     AntennaComponent,

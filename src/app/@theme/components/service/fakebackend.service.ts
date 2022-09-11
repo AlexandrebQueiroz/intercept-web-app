@@ -30,8 +30,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok(mock.quantidadeBlacklist)
         }
 
+        //Antena
         case url.includes(environment.antena.listar) && method === 'GET':{
           return this.ok(mock.antena.points)
+        }
+
+        case url.includes(environment.antena.salvar) && method === 'POST':{
+          return this.ok()
         }
         
         case url.includes('/regras') && method === 'GET':{
@@ -58,9 +63,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok(mock.quantidadeEnviados)
         }
 
-        case url.includes('/antenna/save') && method === 'POST':{
-          return this.ok()
-        }
         
         default:
           return next.handle(request);
@@ -68,7 +70,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   }
 
   private ok(body?: any): Observable<HttpResponse<any>> {
-    return of(new HttpResponse({ status: 200, body })).pipe(delay(1000))
+    return of(new HttpResponse({ status: 200, body })).pipe(delay(300))
   }
 
 }

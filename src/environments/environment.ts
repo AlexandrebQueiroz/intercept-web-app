@@ -7,7 +7,7 @@ export const environment = {
 
   antena: {
     listar: `${baseUrl}/local-antena/find`,
-    salva: `${baseUrl}/local-antena/create`
+    salvar: `${baseUrl}/local-antena/create`
   }
 
 }
