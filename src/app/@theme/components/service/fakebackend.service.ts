@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import mock from '../../../../assets/data/mock/chart.json';
 import { delay } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
+import { env } from 'process';
 
 
 
@@ -39,7 +40,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok()
         }
         
-        case url.includes('/regras') && method === 'GET':{
+        case url.includes(environment.regras.listar) && method === 'GET':{
           return this.ok(mock.regras)
         }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
+import moment from 'moment';
 import { RulesService } from './rules.service';
 
 @Component({
@@ -11,19 +12,24 @@ import { RulesService } from './rules.service';
 export class RulesComponent {
 
   public data: any[];
-  public filter: any;
+  public format = 'DD/MM/yyyy';
+  public inicio = moment().add(-3, 'M').format(this.format); 
+  public final = moment().format(this.format);
 
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
     private service: RulesService) {
     
-    this.buscar();
-    this.filter = {};
+    this.buscar({
+      data : {
+        inicio: this.inicio,
+        final: this.final
+      }});
   }
 
   buscar(filter?: any){
-    this.service.get().subscribe(
+    this.service.get(filter).subscribe(
       data => {
         this.data = data;
         if(filter){
@@ -35,12 +41,24 @@ export class RulesComponent {
   aplicarFiltro(filter: any){
     var filtered = this.data;
     
-    if(filter.status !== null){
+    if(filter.status){
       filtered = this.data.filter((data) => data.status === filter.status)
     }
     
-    if(filter.id !== null){
+    if(filter.id){
       filtered = this.data.filter((data) => data.id === filter.id)
+    }
+    
+    if(filter.nome){
+      filtered = this.data.filter((data) => data.nome?.toLowerCase().includes(filter.nome?.toLowerCase()))
+    }
+    
+    if(filter.tipo){
+      filtered = this.data.filter((data) => data.tipo?.toLowerCase().includes(filter.tipo?.toLowerCase()))
+    }
+    
+    if(filter.status){
+      filtered = this.data.filter((data) => data.status === filter.status)
     }
 
     this.data = filtered;

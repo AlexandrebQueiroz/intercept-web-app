@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NbDateTimePickerComponent } from '@nebular/theme';
 import moment from 'moment';
 
@@ -8,9 +8,10 @@ import moment from 'moment';
 })
 export class RulesFilterComponent {
 
+  public filter: any;
+
   @Output() 
   public buscar = new EventEmitter();
-  public filter: any;
 
   constructor(){
     this.filter = {
@@ -24,8 +25,8 @@ export class RulesFilterComponent {
       status: null
     }
 
-    this.filter.data.inicio = moment().add(-3, 'M'); 
-    this.filter.data.final = moment();
+    this.filter.data.inicio = moment().add(-3, 'M').toDate(); 
+    this.filter.data.final = moment().toDate();
 
   }
 

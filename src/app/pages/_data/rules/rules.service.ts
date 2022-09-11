@@ -6,24 +6,20 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class RulesService {
 
-  getUrl(): string {
-    return `${environment.baseUrl}`;
-  }
-
   constructor(public http: HttpClient) {
 
   }
 
-  get(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/regras`);
+  get(filter?: any): Observable<any[]> {
+    return this.http.get<any[]>(`${environment.regras.listar}/${filter?.data?.inicio}/${filter?.data?.final}`);
   }
 
   save(t: any): Observable<any> {
-    return this.http.post<any>(`${this.getUrl()}/regras`, t);
+    return this.http.post<any>(`${environment}/regras`, t);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete<any>(`${this.getUrl()}/regras/${id}`);
+    return this.http.delete<any>(`${environment}/regras/${id}`);
   }
 
 }
