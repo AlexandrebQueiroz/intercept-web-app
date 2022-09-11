@@ -1,0 +1,70 @@
+<nb-accordion>
+  <nb-accordion-item>
+  
+    <nb-accordion-item-header>
+      Filtros 
+      <br>{{filter.data.final}}
+      <br>{{filter.data.inicio}}
+    </nb-accordion-item-header>
+
+    <nb-accordion-item-body>
+
+      <div class="row">
+        <div class="col-2">
+          <label class="label">#:</label>
+          <input type="text" nbInput fullWidth placeholder="#" [(ngModel)]="filter.id" (keyup.enter)="submit()">
+        </div>
+
+        <div class="col-6">
+          <label class="label">Nome:</label>
+          <input type="text" nbInput fullWidth placeholder="Nome" [(ngModel)]="filter.nome" (keyup.enter)="submit()">
+        </div>
+
+        <div class="col-4">
+          <label class="label">Tipo:</label>
+          <nb-select  fullWidth [(ngModel)]="filter.tipo" placeholder="Tipo">
+            <nb-option [value]='null'>Selecione</nb-option>
+            <nb-option [value]="'MDFE'">MDFE</nb-option>
+            <nb-option [value]="'NFE'">NFE</nb-option>
+            <nb-option [value]="'CTE'">CTE</nb-option>
+          </nb-select>
+
+        </div>
+        
+        <div class="col-4">
+          <label class="label">Data de validade (Inicio):</label>
+          <input type="text" nbInput fullWidth placeholder="Incio" [(ngModel)]="filter.data.inicio" [nbDatepicker]="inicioPicker" (keyup.enter)="submit()">
+            <nb-datepicker #inicioPicker></nb-datepicker>
+             
+        </div>
+    
+        <div class="col-4">
+          <label class="label">Data de validade (Final):</label>
+          <input type="text" nbInput fullWidth placeholder="Final"  [nbDatepicker]="finalPicker" [(ngModel)]="filter.data.final" (keyup.enter)="submit()">
+          <nb-datepicker #finalPicker></nb-datepicker>
+        </div>
+       
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label class="label">Ativo:</label><br>
+          <nb-checkbox [(ngModel)]="filter.status">Considerar regras ativas</nb-checkbox>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 offset-md-6 offset-xl-9 col-xl-3 col-12" >
+            <label class="label">Buscar:</label>
+            <button class="control-button" nbButton fullWidth (click)="submit()">
+              Buscar
+            </button>
+        </div>
+      </div>
+      
+
+    </nb-accordion-item-body>
+  
+  </nb-accordion-item>
+</nb-accordion>

@@ -11,15 +11,39 @@ import { RulesService } from './rules.service';
 export class RulesComponent {
 
   public data: any[];
+  public filter: any;
 
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
     private service: RulesService) {
+    
+    this.buscar();
+    this.filter = {};
+  }
+
+  buscar(filter?: any){
     this.service.get().subscribe(
       data => {
         this.data = data;
-      }) 
+        if(filter){
+          this.aplicarFiltro(filter);
+        }
+      });
+  }
+
+  aplicarFiltro(filter: any){
+    var filtered = this.data;
+    
+    if(filter.status !== null){
+      filtered = this.data.filter((data) => data.status === filter.status)
+    }
+    
+    if(filter.id !== null){
+      filtered = this.data.filter((data) => data.id === filter.id)
+    }
+
+    this.data = filtered;
   }
 
   add(){
