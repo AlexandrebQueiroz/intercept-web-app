@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -16,12 +16,11 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { fakeBackendProvider } from './@theme/components/service/fakebackend.service';
-
 import { registerLocaleData } from '@angular/common';
-
 import ptBr from '@angular/common/locales/pt';
 import { NbDateFnsDateModule } from '@nebular/date-fns';
 import { AuthGuard } from './auth/auth-guard.service';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -56,8 +55,10 @@ registerLocaleData(ptBr)
   providers:[ 
     AuthGuard, 
     fakeBackendProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
 export class AppModule {
+
 }
