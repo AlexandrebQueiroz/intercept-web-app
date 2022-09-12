@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 import { RulesService } from '../rules.service';
@@ -91,11 +91,6 @@ export class RulesAddComponent {
         Validators.required,
       ]),
       
-      produto: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-      
       operador: new FormControl(
         null, [
         Validators.required,
@@ -115,7 +110,16 @@ export class RulesAddComponent {
         Validators.required,
       ]),
 
+      produtos: new FormArray([])
     });
+  }
+
+  public adicionarProduto(){
+    this.produtos.push(new FormControl(null, Validators.required));
+  }
+
+  public removerProduto(i: number){
+    this.produtos.removeAt(i);
   }
 
   public onSubmit(): void {
@@ -178,10 +182,6 @@ export class RulesAddComponent {
     return this.form.get('dataFinal');
   }
 
-  public get produto() {
-    return this.form.get('produto');
-  }
-
   public get operador() {
     return this.form.get('operador');
   } 
@@ -198,5 +198,8 @@ export class RulesAddComponent {
     return this.form.get('percurso');
   }
 
-
+  public get produtos() {
+    return this.form.get('produtos') as FormArray;
+  }
+  
 }

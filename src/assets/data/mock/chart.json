@@ -59,17 +59,28 @@
         "descricao": "exemplo de descricao",
         "importancia": 1,
         "menorEsforco": 10,
-        "produto": "Feijão",
+        "produtos": [
+          {
+            "codigo": 2,
+            "descricao":"Feijão"
+          },
+          {
+            "codigo": 2,
+            "descricao":"Couro"
+          }
+        ],
         "dataInicio": "01/01/2022",
         "dataFinal": "31/12/2022",
-        "tipo":"NFE",
+        "tipo":"MDFE",
         "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
         "valor": "exemplo de valor",
         "data": {
           "inicio": "01/01/2022",
           "final":  "31/12/2022"
         },
-        "status": true
+        "status": true,
+        "percurso": "BRASILIA/GOIANIA",
+        "ncm":"1234"
       },
 
       {
@@ -81,7 +92,7 @@
         "produto": "Feijão",
         "dataInicio": "01/01/2022",
         "dataFinal": "31/12/2022",
-        "tipo":"NFE",
+        "tipo":"CTE",
         "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
         "valor": "exemplo de valor",
         "data": {

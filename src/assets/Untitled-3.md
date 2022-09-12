@@ -45,27 +45,27 @@
 
 
     PRODUTO(1, "(LOWER(det.xProd) LIKE '%VALUE%'"),
-VALOR(2, "det.vProd VALUE"),
-NCM(3, "det.ncm = VALUE"),
-PERCURSO(4, "ide_mdfe.ufPer = 'VALUE'");
+    VALOR(2, "det.vProd VALUE"),
+    NCM(3, "det.ncm = VALUE"),
+    PERCURSO(4, "ide_mdfe.ufPer = 'VALUE'");
 
-"produtos": [
-    {
-    "codigo": 1,
-    "descricao": "Couro"
-    },
-    {
-    "codigo": 1,
-    "descricao": "couro"
-    },
-    {
-    "codigo": 1,
-    "descricao": "couros"
-    },
-    {
-    "codigo": 1,
-    "descricao": "cour"
-    }
+    "produtos": [
+        {
+        "codigo": 1,
+        "descricao": "Couro"
+        },
+        {
+        "codigo": 1,
+        "descricao": "couro"
+        },
+        {
+        "codigo": 1,
+        "descricao": "couros"
+        },
+        {
+        "codigo": 1,
+        "descricao": "cour"
+        }
     ]
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 import moment from 'moment';
@@ -75,11 +75,6 @@ export class RulesDuplicateComponent {
           Validators.required,
       ]),
       
-      produto: new FormControl(
-        data?.produto, [
-          Validators.required,
-      ]),
-      
       operador: new FormControl(
         data?.operador, [
           Validators.required,
@@ -89,9 +84,33 @@ export class RulesDuplicateComponent {
         data?.valor, [
           Validators.required,
       ]),
+      
+      ncm: new FormControl(
+        data?.ncm, [
+      ]),
 
+      percurso: new FormControl(
+        data?.percurso, [
+        Validators.required,
+      ]),
+      
+      produtos: new FormArray([])
     });
+
+    data.produtos?.forEach(p => {
+      this.produtos.push(new FormControl(p.descricao, Validators.required));
+    });
+
   }
+
+  public adicionarProduto(){
+    this.produtos.push(new FormControl(null, Validators.required));
+  }
+
+  public removerProduto(i: number){
+    this.produtos.removeAt(i);
+  }
+
 
   compareById(v1: any, v2: any): boolean {
     return v1.id === v2.id;
@@ -101,10 +120,6 @@ export class RulesDuplicateComponent {
     this.submitted = true;
     if (this.form.invalid) {
       return;
-    }
-
-    if(this.action === 'edit'){
-      //adicionar o id aqui
     }
 
     this.service.save(this.form.value).subscribe(
@@ -187,5 +202,16 @@ export class RulesDuplicateComponent {
     return this.form.get('valor');
   }
 
+  public get produtos() {
+    return this.form.get('produtos') as FormArray;
+  }
+
+  public get percurso() {
+    return this.form.get('percurso');
+  } 
+
+  public get ncm() {
+    return this.form.get('ncm');
+  }
 
 }

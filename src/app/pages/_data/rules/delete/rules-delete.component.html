@@ -78,24 +78,41 @@
           <nb-datepicker #finalPicker></nb-datepicker>
         </div>
       </div>
-
+  
       <div class="row pb-3">
-        <div class="col-4">
-          <label class="label">Produto:*</label>
-          <input type="text" nbInput fullWidth placeholder="Tipo" [formControl]="produto" [status]='getStatus(produto)'>
-        </div>
         
-        <div class="col-4">
+        <div class="col-12" *ngFor="let control of produtos.controls; index as i">
+          <label class="label">Produto:*</label>
+          <input type="text" nbInput fullWidth placeholder="Produto" [formControl]="produtos.controls[i]" [status]='getStatus(produtos.controls[i])'>
+        </div>
+
+      </div>
+      
+      <div class="row pb-3">
+
+        <div class="col-xl-3 col-md-6 col-12">
           <label class="label">Operador:*</label>
           <nb-select fullWidth selected="1" placeholder="Tipo" [compareWith]="compareById"  [formControl]="operador" [status]='getStatus(operador)'>
             <nb-option *ngFor="let op of sqlOperations" [value]=op>{{op.title}}</nb-option>
           </nb-select>
+
+        </div>
+    
+        <div class="col-xl-3 col-md-6 col-12">
+          <label class="label">NCM:</label>
+          <input type="text" nbInput fullWidth placeholder="NCM"  [formControl]="ncm" [status]='getStatus(ncm)'>
         </div>
 
-        <div class="col-4">
+        <div class="col-xl-3 col-md-6 col-12">
           <label class="label">Valor:*</label>
           <input type="text" nbInput fullWidth placeholder="Valor"  [formControl]="valor" [status]='getStatus(valor)'>
         </div>
+        
+        <div class="col-xl-3 col-md-6 col-12">
+          <label class="label">Percurso:*</label>
+          <input type="text" nbInput fullWidth placeholder="Percurso"  [formControl]="percurso" [status]='getStatus(percurso)'>
+        </div>
+
       </div>
       
       <hr/>

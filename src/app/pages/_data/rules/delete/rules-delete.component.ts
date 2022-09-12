@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 import moment from 'moment';
@@ -72,11 +72,6 @@ export class RulesDeleteComponent {
           Validators.required,
       ]),
       
-      produto: new FormControl(
-        data?.produto, [
-          Validators.required,
-      ]),
-      
       operador: new FormControl(
         data?.operador, [
           Validators.required,
@@ -87,6 +82,20 @@ export class RulesDeleteComponent {
           Validators.required,
       ]),
 
+      ncm: new FormControl(
+        data?.ncm, [
+      ]),
+
+      percurso: new FormControl(
+        data?.percurso, [
+        Validators.required,
+      ]),
+      
+      produtos: new FormArray([])
+    });
+
+    data.produtos?.forEach(p => {
+      this.produtos.push(new FormControl(p.descricao, Validators.required));
     });
   }
 
@@ -180,5 +189,15 @@ export class RulesDeleteComponent {
     return this.form.get('valor');
   }
 
+  public get produtos() {
+    return this.form.get('produtos') as FormArray;
+  }
 
+  public get percurso() {
+    return this.form.get('percurso');
+  } 
+
+  public get ncm() {
+    return this.form.get('ncm');
+  }
 }

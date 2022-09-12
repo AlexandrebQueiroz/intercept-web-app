@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbAccordionModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbSelectModule } from '@nebular/theme';
+import { NbAccordionModule, NbButtonGroupModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbFormFieldModule, NbIconModule, NbInputModule, NbSelectModule } from '@nebular/theme';
 import { RulesAddComponent } from './add/rules-add.component';
 import { RulesDeleteComponent } from './delete/rules-delete.component';
 import { RulesDuplicateComponent } from './duplicate/rules-duplicate.component';
@@ -26,6 +26,7 @@ import { RulesService } from './rules.service';
     NbSelectModule,
     NbDatepickerModule,
     NbCheckboxModule,
+    NbFormFieldModule,
   ],
   declarations: [
     RulesComponent,

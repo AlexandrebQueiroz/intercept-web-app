@@ -6,20 +6,25 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class RulesService {
 
-  constructor(public http: HttpClient) {
-
-  }
+  constructor(public http: HttpClient) {}
 
   get(filter?: any): Observable<any[]> {
     return this.http.get<any[]>(`${environment.regras.listar}/${filter?.data?.inicio}/${filter?.data?.final}`);
   }
 
   save(t: any): Observable<any> {
-    return this.http.post<any>(`${environment}/regras`, t);
+
+    const result = [];
+    t.produtos.forEach((p: string) => {
+      result.push({codigo: 1, descricao: p})
+    })
+    t.produtos = result;
+
+    return this.http.post<any>(`${environment.regras.salvar}`, t);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete<any>(`${environment}/regras/${id}`);
+    return this.http.delete<any>(`${environment.regras.deletar}/${id}`);
   }
 
 }

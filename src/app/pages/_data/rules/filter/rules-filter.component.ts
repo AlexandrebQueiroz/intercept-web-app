@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { NbDateTimePickerComponent } from '@nebular/theme';
+import { NbDateTimePickerComponent, NbToastrService } from '@nebular/theme';
 import moment from 'moment';
+import { ignoreElements } from 'rxjs-compat/operator/ignoreElements';
 
 @Component({
   selector: 'rules-filter',
@@ -13,7 +14,7 @@ export class RulesFilterComponent {
   @Output() 
   public buscar = new EventEmitter();
 
-  constructor(){
+  constructor( private toastrService: NbToastrService,){
     this.filter = {
       id: null,
       nome: null,
@@ -55,7 +56,29 @@ export class RulesFilterComponent {
       this.filter.status = null;
     }
 
+    this.validarDatas()
+
     this.buscar.emit(this.filter);
+  }
+
+
+  private validarDatas(){
+    const inicio = this.filter?.data?.inicio;
+    const final = this.filter?.data?.final;
+
+    if(inicio && final){
+      let diff = moment(inicio).diff(moment(final), 'M');
+      if(diff < 0 ){
+        diff = diff * -1;
+      }
+
+      if(diff > 3){
+        this.filter.data.inicio = moment().add(-3, 'M').toDate(); 
+        this.filter.data.final = moment().toDate();
+
+        this.toastrService.default(`Aviso`, `O periodo solicitado não é permitido` );
+      }
+    }
   }
 
 }

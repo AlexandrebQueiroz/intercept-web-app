@@ -12,6 +12,8 @@ export const environment = {
 
   regras:{
     listar: `${baseUrl}/regras/search`,
+    salvar: `${baseUrl}/regras/create`,
+    deletar: `${baseUrl}/regras/deletar`
   }
 
 }
