@@ -21,10 +21,13 @@ import { registerLocaleData } from '@angular/common';
 
 import ptBr from '@angular/common/locales/pt';
 import { NbDateFnsDateModule } from '@nebular/date-fns';
+import { AuthGuard } from './auth/auth-guard.service';
 registerLocaleData(ptBr)
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,7 +53,8 @@ registerLocaleData(ptBr)
   )
   ],
   bootstrap: [AppComponent],
-  providers:[  
+  providers:[ 
+    AuthGuard, 
     fakeBackendProvider,
     { provide: LOCALE_ID, useValue: 'pt' }
   ]

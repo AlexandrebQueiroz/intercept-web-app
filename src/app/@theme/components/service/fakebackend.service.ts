@@ -64,6 +64,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok(mock.quantidadeEnviados)
         }
 
+        case url.includes(environment.autenticacao.logar) && method === 'POST':{
+          return this.ok(mock.usuario)
+        }
         
         default:
           return next.handle(request);

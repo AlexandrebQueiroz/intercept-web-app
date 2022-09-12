@@ -14,6 +14,11 @@ export const environment = {
     listar: `${baseUrl}/regras/search`,
     salvar: `${baseUrl}/regras/create`,
     deletar: `${baseUrl}/regras/deletar`
+  },
+
+  autenticacao: {
+    logar: '/api/auth/login',
+    logout: '/auth/sign-out',
   }
 
 }

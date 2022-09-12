@@ -3,8 +3,10 @@ import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeServ
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NbTokenService } from '@nebular/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -40,12 +42,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = [ { title: 'Sair' } ];
 
-  constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService,
-              private themeService: NbThemeService,
-              private userService: UserData,
-              private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+  constructor(
+    private router: Router,
+    private nbTokenService: NbTokenService,
+    private nbMenuService: NbMenuService,
+    private sidebarService: NbSidebarService,
+    private menuService: NbMenuService,
+    private themeService: NbThemeService,
+    private userService: UserData,
+    private layoutService: LayoutService,
+    private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
@@ -69,6 +75,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+
+      this.nbMenuService.onItemClick()
+        .pipe(
+          filter(({ tag }) => tag === 'login'),
+          map(({ item: { title } }) => title),
+        )
+        .subscribe(title => {
+          if(title === 'Sair'){
+            this.nbTokenService.clear()
+            this.router.navigate(['/auth']);
+          }
+          });
   }
 
   ngOnDestroy() {
