@@ -10,12 +10,13 @@
         <nb-accordion-item-header>
           Filtros
         </nb-accordion-item-header>
-        <nb-accordion-item-body>
+        <nb-accordion-item-body  [nbSpinner]="!loaded">
         
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
             
-            <div class="full-name-inputs">
-              <input 
+            <div class="row">
+              <div class="col-xl-6 col-md-6 col-12 form-group">
+                <input 
                   nbInput 
                   fullWidth 
                   placeholder="Inicio" 
@@ -24,7 +25,9 @@
                   >
                 <nb-datepicker #inicioPicker>
                 </nb-datepicker>
+              </div>
 
+              <div class="col-xl-6 col-md-6 col-12 form-group">
                 <input 
                   nbInput 
                   fullWidth 
@@ -34,11 +37,14 @@
                   >
                 <nb-datepicker #finalPicker>
                 </nb-datepicker>
+              </div>
 
-                <button class="control-button" nbButton type="submit">
+              <div class="col-xl-6 offset-xl-6 offset-md-4 col-md-8 col-12 form-group">
+                <button class="control-button" fullWidth nbButton type="submit">
                   Buscar
                 </button>
               </div>
+            </div>
           </form>
         </nb-accordion-item-body>
       </nb-accordion-item>
@@ -46,7 +52,7 @@
   </nb-card-body>
 
   <nb-card-body>
-    <custom-pie-chart></custom-pie-chart>
+    <custom-pie-chart *ngIf="loaded"></custom-pie-chart>
   </nb-card-body>
 
 </nb-card>

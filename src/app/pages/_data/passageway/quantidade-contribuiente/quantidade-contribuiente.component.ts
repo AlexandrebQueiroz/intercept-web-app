@@ -42,7 +42,7 @@ export class QuantidadeContribuientesComponent  {
   
   public loadData(){
     this.loaded = false;
-    this.service.getFiiVsFazChart({inicio: this.inicio.value, final: this.final.value}).subscribe(
+    this.service.getConstribuinteCadastrados({inicio: this.inicio.value, final: this.final.value}).subscribe(
       data => {
         this.data = data;
         this.loaded = true;

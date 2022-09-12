@@ -24,7 +24,7 @@ export class CustomBarChartComponent implements OnDestroy {
 
       this.options = {
 
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         responsive: true,
         legend: {
           labels: {
@@ -34,22 +34,27 @@ export class CustomBarChartComponent implements OnDestroy {
         scales: {
           xAxes: [
             {
+             
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,
               },
               ticks: {
                 fontColor: chartjs.textColor,
+                beginAtZero: true,
               },
+
             },
           ],
           yAxes: [
             {
+             
               gridLines: {
                 display: true,
                 color: chartjs.axisLineColor,
               },
               ticks: {
+                beginAtZero: true,
                 fontColor: chartjs.textColor,
               },
             },

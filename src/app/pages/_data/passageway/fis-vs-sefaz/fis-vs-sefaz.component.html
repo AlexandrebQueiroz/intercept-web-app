@@ -4,41 +4,50 @@
     Quantidade de DFE's na SEFAZ-GO X ingeridos no FIS
   </nb-card-header>
 
-  <nb-card-body>
+  <nb-card-body >
     <nb-accordion>
       <nb-accordion-item>
         <nb-accordion-item-header>
           Filtros
         </nb-accordion-item-header>
-        <nb-accordion-item-body>
+        <nb-accordion-item-body  [nbSpinner]="!loaded">
         
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
             
-            <div class="full-name-inputs">
-              <input 
-                  nbInput 
-                  fullWidth 
-                  placeholder="Inicio" 
-                  [nbDatepicker]="inicioPicker"
-                  [formControl]="inicio" 
-                  >
-                <nb-datepicker #inicioPicker>
-                </nb-datepicker>
+            <div class="row">
+              <div class="col-xl-6 col-12 form-group">
+                <input 
+                    nbInput 
+                    fullWidth 
+                    class="form-control"
+                    placeholder="Inicio" 
+                    [nbDatepicker]="inicioPicker"
+                    [formControl]="inicio" 
+                    >
+                  <nb-datepicker #inicioPicker>
+                  </nb-datepicker>
+              </div>
 
+              <div class="col-xl-6 col-12 form-group">
                 <input 
                   nbInput 
                   fullWidth 
+                  class="form-control"
                   placeholder="Final" 
                   [nbDatepicker]="finalPicker"
                   [formControl]="final" 
                   >
                 <nb-datepicker #finalPicker>
                 </nb-datepicker>
+              </div>
 
-                <button class="control-button" nbButton type="submit">
+              <div class="offset-xl-9 col-xl-3 offset-md-8 col-md-4 col-12 form-group">
+                <button class="control-button form-control" fullWidth nbButton type="submit" >
                   Buscar
                 </button>
               </div>
+            </div>
+
           </form>
         </nb-accordion-item-body>
       </nb-accordion-item>
@@ -46,7 +55,7 @@
   </nb-card-body>
 
   <nb-card-body>
-    <custom-bar-chart [data]="data">
+    <custom-bar-chart [data]="data" *ngIf="loaded">
     </custom-bar-chart>
   </nb-card-body>
 

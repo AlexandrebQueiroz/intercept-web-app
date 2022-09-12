@@ -19,19 +19,22 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     const { url, method, } = request;
 
       switch (true) {
-        case url.includes('fii-vs-sefaz') && method === 'GET':{
+        case url.includes(environment.graficos.fisVsSefaz) && method === 'GET':{
           return this.ok(mock.chartFiiVsSefaz)
         }
 
-        case url.includes('/constribuinte-cadastrados') && method === 'GET':{
-          return this.ok(mock.quantidadeRegistrosdePassagem) 
-        }
-
-        case url.includes('/quantidade-blacklist') && method === 'GET':{
+        case url.includes(environment.graficos.blacklist) && method === 'GET':{
           return this.ok(mock.quantidadeBlacklist)
         }
 
-        //Antena
+        case url.includes(environment.graficos.registroPassagem) && method === 'GET':{
+          return this.ok(mock.quantidadeRegistrospassagens)
+        }
+
+        case url.includes(environment.graficos.constribuinteCadastrados) && method === 'GET':{
+          return this.ok(mock.quantidadeRegistrosdePassagem,400) 
+        }
+
         case url.includes(environment.antena.listar) && method === 'GET':{
           return this.ok(mock.antena.points)
         }
@@ -52,10 +55,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok()
         }
 
-        case url.includes('/registro-passagem') && method === 'GET':{
-          return this.ok(mock.quantidadeRegistrospassagens)
-        }
-
+      
         case url.includes('/registro-passagem-primeira-passagem`') && method === 'GET':{
           return this.ok(mock.quantidadePrimeiraPassagem)
         }
@@ -73,8 +73,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
   }
 
-  private ok(body?: any): Observable<HttpResponse<any>> {
-    return of(new HttpResponse({ status: 200, body })).pipe(delay(300))
+  private ok(body?: any, times: any = 300): Observable<HttpResponse<any>> {
+    return of(new HttpResponse({ status: 200, body })).pipe(delay(times))
   }
 
 }

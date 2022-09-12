@@ -8,17 +8,17 @@
     <nb-accordion-item-body>
 
       <div class="row">
-        <div class="col-2">
+        <div class="col-xl-2 col-md-6 col-12">
           <label class="label">#:</label>
           <input type="text" nbInput fullWidth placeholder="#" [(ngModel)]="filter.id" (keyup.enter)="submit()">
         </div>
 
-        <div class="col-6">
+        <div class="col-xl-6 col-md-6 col-12">
           <label class="label">Nome:</label>
           <input type="text" nbInput fullWidth placeholder="Nome" [(ngModel)]="filter.nome" (keyup.enter)="submit()">
         </div>
 
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6 col-12">
           <label class="label">Tipo:</label>
           <nb-select  fullWidth [(ngModel)]="filter.tipo" placeholder="Tipo">
             <nb-option [value]='null'>Selecione</nb-option>
@@ -29,14 +29,14 @@
 
         </div>
         
-        <div class="col-4">
+        <div class="col-xl-6 col-md-6 col-12">
           <label class="label">Data de validade (Inicio):</label>
           <input type="text" nbInput fullWidth placeholder="Incio" [(ngModel)]="filter.data.inicio" [nbDatepicker]="inicioPicker" (keyup.enter)="submit()">
             <nb-datepicker #inicioPicker></nb-datepicker>
              
         </div>
     
-        <div class="col-4">
+        <div class="col-xl-6 col-md-3 col-12">
           <label class="label">Data de validade (Final):</label>
           <input type="text" nbInput fullWidth placeholder="Final"  [nbDatepicker]="finalPicker" [(ngModel)]="filter.data.final" (keyup.enter)="submit()">
           <nb-datepicker #finalPicker></nb-datepicker>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="row">
-        <div class="col-4">
+        <div class="col-xl-2 col-md-3 col-12">
           <label class="label">Ativo:</label><br>
           <nb-checkbox [(ngModel)]="filter.status">Somente Regras Ativas</nb-checkbox>
         </div>

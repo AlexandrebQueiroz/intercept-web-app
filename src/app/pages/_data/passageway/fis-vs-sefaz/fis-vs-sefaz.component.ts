@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import moment from 'moment';
 import { PassagemwayService } from '../passageway.service';
 
 @Component({
@@ -12,6 +13,9 @@ export class FisVsSefazComponent  {
   public data: any;
   public loaded = false;
   public form: FormGroup;
+
+  private today = new Date();
+  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
 
   constructor(
     public service: PassagemwayService,
@@ -31,8 +35,8 @@ export class FisVsSefazComponent  {
 
   public createForm() {
     this.form = this.fb.group({
-      inicio: new FormControl(new Date()),
-      final: new FormControl(new Date()),
+      inicio: new FormControl(this.lastMonth),
+      final: new FormControl(this.today),
     });
   }
   

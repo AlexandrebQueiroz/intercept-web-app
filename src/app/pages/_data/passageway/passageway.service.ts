@@ -21,38 +21,36 @@ export class PassagemwayService {
   }
 
   getFiiVsFazChart(filtro?: any): Observable<any[]> {
-    
-    if(!filtro){
-      filtro = {};
-      filtro.inicio = moment(new Date()).format("DD/MM/YYYY");
-      filtro.final = moment(new Date()).add(1, 'months').format("DD/MM/YYYY");
-    }
-
-    const inicioFormated = moment(filtro?.inicio).format("DD/MM/YYYY");
-    const finalFormated = moment(filtro?.final).format("DD/MM/YYYY");
-
-    return this.http.get<any[]>(`${this.getUrl()}/fii-vs-sefaz/${inicioFormated}/${finalFormated}`);
+    const parameter = this.prepareFiltro(filtro);
+    return this.http.get<any[]>(`${this.getUrl()}/fii-vs-sefaz/${parameter.inicio}/${parameter.final}`);
   }
   
   getConstribuinteCadastrados(filtro?: any): Observable<any[]> {
-    
-    if(!filtro){
-      filtro = {};
-      filtro.inicio = moment(new Date()).format("DD/MM/YYYY");
-      filtro.final = moment(new Date()).add(1, 'months').format("DD/MM/YYYY");
-    }
-
-    const inicioFormated = moment(filtro?.inicio).format("DD/MM/YYYY");
-    const finalFormated = moment(filtro?.final).format("DD/MM/YYYY");
-
-    return this.http.get<any[]>(`${this.getUrl()}/constribuinte-cadastrados/${inicioFormated}/${finalFormated}`);
+    const parameter = this.prepareFiltro(filtro);
+    return this.http.get<any[]>(`${environment.graficos.constribuinteCadastrados}/${parameter.inicio}/${parameter.final}`);
   }
 
   getQuantidadeBlacklist(filtro?: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/quantidade-blacklist/${filtro?.inicio}/${filtro?.final}`);
+    const parameter = this.prepareFiltro(filtro);
+    return this.http.get<any[]>(`${this.getUrl()}/quantidade-blacklist/${parameter?.inicio}/${parameter?.final}`);
   }
   
-  getQuantidadePassagem(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.getUrl()}/quantidade-passagem`);
+  getQuantidadePassagem(filtro?: any): Observable<any[]> {
+    const parameter = this.prepareFiltro(filtro);
+    return this.http.get<any[]>(`${environment.graficos.registroPassagem}/${parameter?.inicio}/${parameter?.final}`);
+  }
+
+  private prepareFiltro(filtro: any){
+    
+    if(!filtro){
+      filtro = {};
+      filtro.inicioFormatado = moment(new Date());
+      filtro.finalFormatado = moment(new Date()).add(-3, 'months');
+    } 
+    
+    const inicioFormatado = moment(filtro?.inicio).format(environment.format.data)
+    const finalFormatado = moment(filtro?.finalFormatado).format(environment.format.data)
+
+    return {inicio: inicioFormatado, final: finalFormatado };
   }
 }

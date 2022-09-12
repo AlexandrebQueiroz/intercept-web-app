@@ -40,7 +40,7 @@ export class QuantidadePassagemComponent implements OnInit  {
   
   public loadData(){
     this.loading = true;
-    this.service.getConstribuinteCadastrados({inicio: this.inicio.value, final: this.final.value}).subscribe(
+    this.service.getQuantidadePassagem({inicio: this.inicio.value, final: this.final.value}).subscribe(
       data => {
         this.data = data;
         this.loading = false;

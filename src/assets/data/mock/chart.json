@@ -12,15 +12,15 @@
       "datasets": [
         {
           "label": "MDF-E" ,
-          "data": [10,10,10,10,10,10]
+          "data": [500,11,130,300,250,500]
         }, 
         {
           "label": "CT-E",
-          "data": [10,10,10,10,10,10]
+          "data": [150,180,10,10,10,430]
         },
         {
           "label": "NF-E",
-          "data": [10,10,10,10,10,10]
+          "data": [135,90,480,250,125,172]
         }
       ]
     },
@@ -38,17 +38,29 @@
     "antena":{
       "points": [
         { 
-          "latitude": -16.8525914, 
-          "longitude": -49.028055, 
+          "latitude": -16.6761553, 
+          "longitude": -49.2886361, 
           "faixas":"BRASILIA/FORMOSA", 
           "dataHoraInsercao":"20/04/2022 18:40:41"
         },
         { 
-          "latitude": -16.9525914, 
-          "longitude": -49.128055, 
+          "latitude": -16.4834032, 
+          "longitude": -49.0987211, 
           "faixas":"BRASILIA/FORMOSA", 
           "dataHoraInsercao":"20/04/2022 18:40:41"
-        }    
+        },
+        { 
+          "latitude": -16.4472969,
+          "longitude": -49.0280915, 
+          "faixas":"BRASILIA/FORMOSA", 
+          "dataHoraInsercao":"20/04/2022 18:40:41"
+        },
+        { 
+          "latitude": -16.3331706,
+          "longitude": -49.0194965, 
+          "faixas":"BRASILIA/FORMOSA", 
+          "dataHoraInsercao":"20/04/2022 18:40:41"
+        }
       ]
     },
 
