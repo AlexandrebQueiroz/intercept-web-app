@@ -10,7 +10,7 @@ import { NbThemeService } from '@nebular/theme';
 export class BarEchartsComponent implements AfterViewInit, OnDestroy {
   
   @Input()
-  public data: any;
+  public data: any[];
 
   options: any = {};
   themeSubscription: any;
@@ -19,8 +19,16 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
+    const titles = [];
+    const values = [];
+
+    this.data?.forEach(d => {
+      titles.push(d?.titulo);
+      values.push(d?.valor);
+    });
+
+    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
       const echarts: any = config.variables.echarts;
@@ -43,7 +51,7 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: this.data?.titulos,
+            data: titles,
             
             axisTick: {
               alignWithLabel: true,
@@ -85,7 +93,7 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
             name: 'Score',
             type: 'bar',
             barWidth: '60%',
-            data: this.data?.valores,
+            data: values,
           },
         ],
       };

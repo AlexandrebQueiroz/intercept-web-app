@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NbDateFnsDateModule } from '@nebular/date-fns';
@@ -7,6 +8,7 @@ import { CustomChartsModule } from '../../_component/custom-charts.module';
 import { AlertRoutingModule } from './alert-routing.module';
 import { AlertComponent } from './alert.component';
 import { AlertService } from './alert.service';
+import { FiltroComponent } from './filtro/filtro.component';
 
 @NgModule({
   imports: [
@@ -22,9 +24,11 @@ import { AlertService } from './alert.service';
     NbSpinnerModule,
     NbInputModule,
     NbButtonModule,
+    CommonModule,
   ],
   declarations: [
     AlertComponent,
+    FiltroComponent,
   ],
   providers: [
     AlertService

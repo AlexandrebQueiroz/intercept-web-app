@@ -129,8 +129,8 @@ export class RulesAddComponent {
     }
 
     this.service.save(this.form.value).subscribe(
-      ()=>{
-        this.toastrService.success(`Sucesso`, `O registro foi gravado`);
+      (data)=>{
+        this.toastrService.success(`Sucesso`, `O registro foi gravado Número :${data?.id} Nome:${data?.nome}`);
         this.router.navigate(['../'],  {relativeTo: this.activeRoute});
       }
     );

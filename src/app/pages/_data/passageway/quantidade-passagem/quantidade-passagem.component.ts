@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import moment from 'moment';
 import { PassagemwayService } from '../passageway.service';
 
 @Component({
@@ -8,11 +9,10 @@ import { PassagemwayService } from '../passageway.service';
   templateUrl: './quantidade-passagem.component.html',
 })
 export class QuantidadePassagemComponent implements OnInit  {
-
+  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
   public data: any;
   public filtro: any;
-  public loading: boolean = false;
-  public submitted: boolean = false;
+  public loaded: boolean = false;
 
   public form: FormGroup;
 
@@ -30,7 +30,7 @@ export class QuantidadePassagemComponent implements OnInit  {
   public createForm() {
     this.form = this.fb.group({
       inicio: new FormControl(new Date()),
-      final: new FormControl(new Date()),
+      final: new FormControl(this.lastMonth),
     });
   }
 
@@ -39,11 +39,11 @@ export class QuantidadePassagemComponent implements OnInit  {
   }
   
   public loadData(){
-    this.loading = true;
+    this.loaded = false;
     this.service.getQuantidadePassagem({inicio: this.inicio.value, final: this.final.value}).subscribe(
       data => {
         this.data = data;
-        this.loading = false;
+        this.loaded = true;
       }
     );
   }

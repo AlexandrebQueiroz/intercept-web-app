@@ -12,7 +12,6 @@ import { CustomPieChartComponent } from './pie-chart/pie-chart.component';
   imports: [
     ChartModule,
     NgxEchartsModule,
-
     NgxChartsModule,
   ],
   declarations: [

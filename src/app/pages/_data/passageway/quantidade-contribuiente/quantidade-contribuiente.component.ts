@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import moment from 'moment';
 import { PassagemwayService } from '../passageway.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PassagemwayService } from '../passageway.service';
   templateUrl: './quantidade-contribuiente.component.html',
 })
 export class QuantidadeContribuientesComponent  {
-
+  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
   public data: any;
   public loaded = false;
   public form: FormGroup;
@@ -31,7 +32,7 @@ export class QuantidadeContribuientesComponent  {
 
   public createForm() {
     this.form = this.fb.group({
-      inicio: new FormControl(new Date()),
+      inicio: new FormControl(this.lastMonth),
       final: new FormControl(new Date()),
     });
   }

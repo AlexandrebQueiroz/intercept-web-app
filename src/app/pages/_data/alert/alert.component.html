@@ -1,59 +1,49 @@
-<nb-card>
-    <nb-accordion>
-      <nb-accordion-item>
-        <nb-accordion-item-header>
-          Filtros
-        </nb-accordion-item-header>
-        <nb-accordion-item-body>
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
-            <div class="full-name-inputs">
-              <input type="text" nbInput fullWidth placeholder="Inicio" [formControl]="inicio"   [nbDatepicker]="inicioPicker">
-              <nb-datepicker #inicioPicker>  </nb-datepicker>
 
-              <input type="text" nbInput fullWidth placeholder="Final" [formControl]="final"  [nbDatepicker]="finalPicker">
-              <nb-datepicker #finalPicker>  </nb-datepicker>
-              <button class="control-button" nbButton type="submit">
-                Buscar
-              </button>
-            </div>
-        </form>
-        </nb-accordion-item-body>
-      </nb-accordion-item>
-    </nb-accordion>
-</nb-card>
+<div class="row">
 
+  <div class="col-12">
+    <nb-card>
+      <filtro [loaded]="loaded" (filtrar)="filtrar($event)" ></filtro>
+    </nb-card>  
+  </div>
+
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>Quantidade Alertas Gerados</nb-card-header>
+
+      <nb-card-body>
+        <d3-bar-chart [data]=data.quantidadeAlertasGerados *ngIf="loaded"></d3-bar-chart>
+      </nb-card-body>
+    
+    </nb-card>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>Quantidade Alertas Primeira Passagem</nb-card-header>
+
+      <nb-card-body>
+        <d3-bar-chart [data]=data.quantidadePrimeiraPassagem *ngIf="loaded"></d3-bar-chart>
+      </nb-card-body>
+    
+    </nb-card>
+  </div>
+
+</div>
 
 
 <div class="row">
 
   <div class="col-12">
     <nb-card>
-      <nb-card-header>Quantidade de Registros de passagens</nb-card-header>
+      <nb-card-header>Quantidade enviados</nb-card-header>
 
       <nb-card-body>
-        <d3-bar-chart [data]=dataRegistroPassagem></d3-bar-chart>
-      </nb-card-body>
-    
-    </nb-card>
-  </div>
-
-  <div class="col-12">
-    <nb-card>
-      <nb-card-header>Quantidade de Registros na Blacklist</nb-card-header>
-
-      <nb-card-body>
-        <d3-bar-chart [data]=dataAlertasPrimeiraPassagem></d3-bar-chart>
-      </nb-card-body>
-    
-    </nb-card>
-  </div>
-
-  <div class="col-12">
-    <nb-card>
-      <nb-card-header>Quantidade de Registros na Blacklist</nb-card-header>
-
-      <nb-card-body>
-        <d3-bar-chart [data]=enviados></d3-bar-chart>
+        <d3-bar-chart [data]=data.quantidadeEnviados *ngIf="loaded"></d3-bar-chart>
       </nb-card-body>
     
     </nb-card>

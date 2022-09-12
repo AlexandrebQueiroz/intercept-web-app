@@ -1,0 +1,16 @@
+{
+  "quantidadeRegistrospassagens" : [
+    { "titulo": "Bebida", "valor": 1200 },
+    { "titulo": "Produtores", "valor": 1230 },
+    { "titulo": "BL-NFE CA", "valor": 1301 },
+    { "titulo": "Feijão", "valor": 3000 },
+    { "titulo": "Dist. Combustivel", "valor": 120 },
+    { "titulo": "BL-DESV ROTA", "valor": 2800 },
+    { "titulo": "Couro", "valor": 2500 },
+    { "titulo": "Usina SH - ZF", "valor": 1130 },
+    { "titulo": "BL Cerveja", "valor": 1310 },
+    { "titulo": "Outros", "valor": 8940 }
+  ]
+}
+
+

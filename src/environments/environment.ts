@@ -10,6 +10,10 @@ export const environment = {
     salvar: `${baseUrl}/local-antena/create`
   },
 
+  alerta: {
+    listar: `${baseUrl}/alerta/search`
+  },
+
   regras:{
     listar: `${baseUrl}/regras/search`,
     salvar: `${baseUrl}/regras/create`,

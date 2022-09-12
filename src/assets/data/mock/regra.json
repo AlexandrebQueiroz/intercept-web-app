@@ -1,0 +1,29 @@
+{
+  "id":"1",
+  "nome":"Regra A",
+  "descricao": "exemplo de descricao",
+  "importancia": 1,
+  "menorEsforco": 10,
+  "produtos": [
+    {
+      "codigo": 2,
+      "descricao":"Feijão"
+    },
+    {
+      "codigo": 2,
+      "descricao":"Couro"
+    }
+  ],
+  "dataInicio": "01/01/2022",
+  "dataFinal": "31/12/2022",
+  "tipo":"MDFE",
+  "operador": {"id":1, "value": "<", "title": "Menor que (<)", "type": "int"},
+  "valor": "exemplo de valor",
+  "data": {
+    "inicio": "01/01/2022",
+    "final":  "31/12/2022"
+  },
+  "status": true,
+  "percurso": "BRASILIA/GOIANIA",
+  "ncm":"1234"
+}

@@ -32,7 +32,7 @@ export class PassagemwayService {
 
   getQuantidadeBlacklist(filtro?: any): Observable<any[]> {
     const parameter = this.prepareFiltro(filtro);
-    return this.http.get<any[]>(`${this.getUrl()}/quantidade-blacklist/${parameter?.inicio}/${parameter?.final}`);
+    return this.http.get<any[]>(`${environment.graficos.blacklist}/${parameter.inicio}/${parameter.final}`);
   }
   
   getQuantidadePassagem(filtro?: any): Observable<any[]> {

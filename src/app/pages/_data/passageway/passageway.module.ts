@@ -5,6 +5,7 @@ import { NbDateFnsDateModule } from '@nebular/date-fns';
 import { NbMomentDateModule } from '@nebular/moment';
 import { NbAccordionModule, NbButton, NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule, NbSpinnerComponent, NbSpinnerModule } from '@nebular/theme';
 import { CustomChartsModule } from '../../_component/custom-charts.module';
+import { FiltroComponent } from './filtro/filtro.component';
 import { FisVsSefazComponent } from './fis-vs-sefaz/fis-vs-sefaz.component';
 import { PassagewayRoutingModule } from './passageway-routing.module';
 import { PassagewayComponent } from './passageway.component';
@@ -37,6 +38,7 @@ import { QuantidadePassagemComponent } from './quantidade-passagem/quantidade-pa
     QuantidadeContribuientesComponent,
     QuantidadeBlacklistComponent,
     QuantidadePassagemComponent,
+    FiltroComponent,
   ],
   providers: [
     PassagemwayService,

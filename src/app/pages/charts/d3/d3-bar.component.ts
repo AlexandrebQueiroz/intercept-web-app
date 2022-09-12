@@ -22,6 +22,7 @@ export class D3BarComponent implements OnDestroy {
     { name: 'USA', value: 5000 },
     { name: 'France', value: 7200 },
   ];
+  
   showLegend = true;
   showXAxis = true;
   showYAxis = true;

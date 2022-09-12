@@ -1,0 +1,42 @@
+{
+  "quantidadeAlertasGerados" : [
+    { "titulo": "Bebida", "valor": 3200 },
+    { "titulo": "Produtores", "valor": 2230 },
+    { "titulo": "BL-NFE CA", "valor": 1301 },
+    { "titulo": "Feijão", "valor": 4000 },
+    { "titulo": "Dist. Combustivel", "valor": 120 },
+    { "titulo": "BL-DESV ROTA", "valor": 2800 },
+    { "titulo": "Couro", "valor": 1700 },
+    { "titulo": "Usina SH - ZF", "valor": 1130 },
+    { "titulo": "BL Cerveja", "valor": 1310 },
+    { "titulo": "Outros", "valor": 8940 }
+  ],
+
+  "quantidadePrimeiraPassagem" : [
+    { "titulo": "Bebida", "valor": 3200 },
+    { "titulo": "Produtores", "valor": 2230 },
+    { "titulo": "BL-NFE CA", "valor": 1301 },
+    { "titulo": "Feijão", "valor": 4000 },
+    { "titulo": "Dist. Combustivel", "valor": 120 },
+    { "titulo": "BL-DESV ROTA", "valor": 2800 },
+    { "titulo": "Couro", "valor": 1700 },
+    { "titulo": "Usina SH - ZF", "valor": 1130 },
+    { "titulo": "BL Cerveja", "valor": 1310 },
+    { "titulo": "Outros", "valor": 8940 }
+  ],
+
+  "quantidadeEnviados" : [
+    { "titulo": "Bebida", "valor": 100 },
+    { "titulo": "Produtores", "valor": 2330 },
+    { "titulo": "BL-NFE CA", "valor": 2301 },
+    { "titulo": "Feijão", "valor": 1000 },
+    { "titulo": "Dist. Combustivel", "valor": 2120 },
+    { "titulo": "BL-DESV ROTA", "valor": 2100 },
+    { "titulo": "Couro", "valor": 1900 },
+    { "titulo": "Usina SH - ZF", "valor": 1830 },
+    { "titulo": "BL Cerveja", "valor": 1710 },
+    { "titulo": "Outros", "valor": 8940 }
+  ]
+}
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import moment from 'moment';
 import { PassagemwayService } from '../passageway.service';
 
 @Component({
@@ -9,10 +10,11 @@ import { PassagemwayService } from '../passageway.service';
 })
 export class QuantidadeBlacklistComponent implements OnInit {
 
+  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
+  
   public data: any;
   public filtro: any;
-  public loading: boolean = false;
-  public submitted: boolean = false;
+  public loaded: boolean = false;
 
   public form: FormGroup;
 
@@ -20,55 +22,35 @@ export class QuantidadeBlacklistComponent implements OnInit {
     public service: PassagemwayService,
     public fb: FormBuilder,
     ){
+    this.createForm();
+    this.loadData();
   }
 
   ngOnInit(): void {
-    this.loadData();
-    this.createForm();
   }
 
   public createForm() {
-
     this.form = this.fb.group({
-
-      inicio: new FormControl(
-        new Date(), [
-        Validators.required,
-      ]),
-
-      final: new FormControl(
-        new Date(), [
-        Validators.required,
-      ]),
-
+      inicio: new FormControl(this.lastMonth),
+      final: new FormControl(new Date()),
     });
   }
 
   onSubmit(): void {
-    this.submitted = true;
-    
-    if (this.form.invalid) {
-      return;
-    }
-    
-    this.loading = true;
     this.loadData();
   }
-
+  
   public loadData(){
-    this.service.getQuantidadeBlacklist(this.filtro).subscribe(
+    this.loaded = false;
+    this.service.getQuantidadeBlacklist({inicio: this.inicio.value, final: this.final.value}).subscribe(
       data => {
         this.data = data;
-        this.loading = false;
+        this.loaded = true;
       }
     );
   }
 
   public getStatus(field: any): string {
-
-    if (!this.submitted ) {
-      return 'basic';
-     }
 
      if (field.valid) {
        return 'success';

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -6,7 +6,7 @@ import { NbThemeService } from '@nebular/theme';
   template: `
     <ngx-charts-bar-vertical
       [scheme]="colorScheme"
-      [results]="data"
+      [results]="results"
       [xAxis]="showXAxis"
       [yAxis]="showYAxis"
       [legend]="showLegend"
@@ -16,10 +16,11 @@ import { NbThemeService } from '@nebular/theme';
     </ngx-charts-bar-vertical>
   `,
 })
-export class D3BarCComponent implements OnDestroy {
+export class D3BarCComponent implements OnDestroy, OnInit {
 
   @Input()
   public data: any[];
+  results = [];
 
   showLegend = true;
   showXAxis = true;
@@ -30,6 +31,17 @@ export class D3BarCComponent implements OnDestroy {
   themeSubscription: any;
 
   constructor(private theme: NbThemeService) {
+
+  }
+
+  ngOnInit(): void {
+    
+    this.data?.forEach(d => {
+      this.results.push(
+        {name: d.titulo, value: d.valor}
+      );
+    })
+
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
       this.colorScheme = {
@@ -41,4 +53,6 @@ export class D3BarCComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }
+
+
 }

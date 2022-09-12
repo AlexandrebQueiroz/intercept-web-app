@@ -5,7 +5,7 @@ import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { NbTokenService } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthService, NbTokenService } from '@nebular/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private nbTokenService: NbTokenService,
+    private authService: NbAuthService,
     private nbMenuService: NbMenuService,
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
@@ -76,7 +77,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(themeName => this.currentTheme = themeName);
 
-      this.nbMenuService.onItemClick()
+    this.nbMenuService.onItemClick()
         .pipe(
           filter(({ tag }) => tag === 'login'),
           map(({ item: { title } }) => title),
@@ -86,7 +87,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.nbTokenService.clear()
             this.router.navigate(['/auth']);
           }
-          });
+      });
+
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+      
+        if (token.isValid()) {
+          const payload = token.getPayload();
+          this.user = payload; 
+        }
+        
+    });
   }
 
   ngOnDestroy() {
