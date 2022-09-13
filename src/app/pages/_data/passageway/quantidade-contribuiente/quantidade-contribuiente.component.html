@@ -5,50 +5,7 @@
   </nb-card-header>
 
   <nb-card-body>
-    <nb-accordion>
-      <nb-accordion-item>
-        <nb-accordion-item-header>
-          Filtros
-        </nb-accordion-item-header>
-        <nb-accordion-item-body  [nbSpinner]="!loaded">
-        
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
-            
-            <div class="row">
-              <div class="col-xl-6 col-md-6 col-12 form-group">
-                <input 
-                  nbInput 
-                  fullWidth 
-                  placeholder="Inicio" 
-                  [nbDatepicker]="inicioPicker"
-                  [formControl]="inicio" 
-                  >
-                <nb-datepicker #inicioPicker>
-                </nb-datepicker>
-              </div>
-
-              <div class="col-xl-6 col-md-6 col-12 form-group">
-                <input 
-                  nbInput 
-                  fullWidth 
-                  placeholder="Final" 
-                  [nbDatepicker]="finalPicker"
-                  [formControl]="final" 
-                  >
-                <nb-datepicker #finalPicker>
-                </nb-datepicker>
-              </div>
-
-              <div class="col-xl-6 offset-xl-6 offset-md-4 col-md-8 col-12 form-group">
-                <button class="control-button" fullWidth nbButton type="submit">
-                  Buscar
-                </button>
-              </div>
-            </div>
-          </form>
-        </nb-accordion-item-body>
-      </nb-accordion-item>
-      </nb-accordion>
+    <filtro [loaded]="loaded" (filtrar)="filtrar($event)"></filtro>
   </nb-card-body>
 
   <nb-card-body>

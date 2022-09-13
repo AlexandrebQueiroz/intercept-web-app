@@ -3,45 +3,7 @@
   <nb-card-header class="text-center">Quantidade Registros na Blacklist</nb-card-header>
   
   <nb-card-body>
-    <nb-accordion>
-      <nb-accordion-item>
-        <nb-accordion-item-header>
-          Filtros 
-        </nb-accordion-item-header>
-        <nb-accordion-item-body [nbSpinner]="!loaded">
-          
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
-            
-            <div class="full-name-inputs">
-              <input 
-                nbInput 
-                fullWidth 
-                placeholder="Inicio" 
-                [nbDatepicker]="inicioPicker"
-                [formControl]="inicio"  
-                >
-              <nb-datepicker #inicioPicker>
-              </nb-datepicker>
-            
-              <input 
-                nbInput 
-                fullWidth 
-                placeholder="final" 
-                [nbDatepicker]="finalPicker"
-                [formControl]="final"  
-                >
-              <nb-datepicker #finalPicker >
-              </nb-datepicker>
-              
-              <button class="control-button" nbButton type="submit">
-                Buscar
-              </button>
-            </div>
-          </form>
-          
-        </nb-accordion-item-body>
-      </nb-accordion-item>
-    </nb-accordion>
+    <filtro [loaded]="loaded" (filtrar)="filtrar($event)"></filtro>
   </nb-card-body>
   
   <nb-card-body>

@@ -90,7 +90,7 @@ export class BarEchartsComponent implements AfterViewInit, OnDestroy {
         ],
         series: [
           {
-            name: 'Score',
+            name: 'Valor',
             type: 'bar',
             barWidth: '60%',
             data: values,

@@ -121,7 +121,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 }
 
 function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
+  return parseInt(Math.random() * (max - min) + min );
 }
 
 export const fakeBackendProvider = {

@@ -21,6 +21,8 @@ import ptBr from '@angular/common/locales/pt';
 import { NbDateFnsDateModule } from '@nebular/date-fns';
 import { AuthGuard } from './auth/auth-guard.service';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -49,7 +51,11 @@ registerLocaleData(ptBr)
       parseOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
       formatOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
     },
-  )
+  ),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   bootstrap: [AppComponent],
   providers:[ 

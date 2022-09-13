@@ -10,61 +10,27 @@ import { PassagemwayService } from '../passageway.service';
 })
 export class QuantidadeBlacklistComponent implements OnInit {
 
-  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
-  
-  public data: any;
-  public filtro: any;
   public loaded: boolean = false;
-
-  public form: FormGroup;
+  public data: any;
 
   constructor(
     public service: PassagemwayService,
     public fb: FormBuilder,
     ){
-    this.createForm();
-    this.loadData();
   }
 
   ngOnInit(): void {
-  }
-
-  public createForm() {
-    this.form = this.fb.group({
-      inicio: new FormControl(this.lastMonth),
-      final: new FormControl(new Date()),
-    });
-  }
-
-  onSubmit(): void {
-    this.loadData();
+    this.filtrar({});
   }
   
-  public loadData(){
+  public filtrar(filtro){
     this.loaded = false;
-    this.service.getQuantidadeBlacklist({inicio: this.inicio.value, final: this.final.value}).subscribe(
+    this.service.getQuantidadeBlacklist(filtro).subscribe(
       data => {
         this.data = data;
         this.loaded = true;
       }
     );
-  }
-
-  public getStatus(field: any): string {
-
-     if (field.valid) {
-       return 'success';
-     }
-
-     return 'danger';
-  }
-
-  public get inicio() {
-    return this.form.get('inicio');
-  }
-
-  public get final() {
-    return this.form.get('final');
   }
 
 }

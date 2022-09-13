@@ -9,41 +9,21 @@ import { PassagemwayService } from '../passageway.service';
   templateUrl: './quantidade-contribuiente.component.html',
 })
 export class QuantidadeContribuientesComponent  {
-  private lastMonth =  moment(new Date()).add(-1, 'months').toDate() 
   public data: any;
   public loaded = false;
-  public form: FormGroup;
 
   constructor(
     public service: PassagemwayService,
     public fb: FormBuilder,
     ){
-    this.createForm();
   }
-
   ngOnInit(): void {
-    this.service.getFiiVsFazChart().subscribe(
-      data => {
-        this.data = data;
-        this.loaded = true;
-      }
-    );
-  }
-
-  public createForm() {
-    this.form = this.fb.group({
-      inicio: new FormControl(this.lastMonth),
-      final: new FormControl(new Date()),
-    });
+    this.filtrar({});
   }
   
-  onSubmit(): void {
-    this.loadData();
-  }
-  
-  public loadData(){
+  public filtrar(filtro){
     this.loaded = false;
-    this.service.getConstribuinteCadastrados({inicio: this.inicio.value, final: this.final.value}).subscribe(
+    this.service.getConstribuinteCadastrados(filtro).subscribe(
       data => {
         this.data = data;
         this.loaded = true;
@@ -51,21 +31,5 @@ export class QuantidadeContribuientesComponent  {
     );
   }
 
-  public getStatus(field: any): string {
-
-     if (field.valid) {
-       return 'success';
-     }
-
-     return 'danger';
-  }
-
-  public get inicio() {
-    return this.form.get('inicio');
-  }
-
-  public get final() {
-    return this.form.get('final');
-  }
 
 }

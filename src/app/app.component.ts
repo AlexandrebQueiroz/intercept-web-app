@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NbDateTimePickerComponent } from '@nebular/theme';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
 
