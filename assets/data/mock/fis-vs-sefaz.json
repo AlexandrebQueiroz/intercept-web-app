@@ -3,11 +3,11 @@
     {
       "labels": [
         "SEFAZ JAN",
-        "FII JAN",
+        "INTERCEPT JAN",
         "SEFAZ FEV",
-        "FII FEV",
+        "INTERCEPT FEV",
         "SEFAZ MAR",
-        "FII MAR"
+        "INTERCEPT MAR"
       ],
       "datasets": [
         {
