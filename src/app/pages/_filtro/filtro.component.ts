@@ -36,10 +36,7 @@ export class FiltroComponent  {
   
   public onSubmit(){
 
-    const inicio = moment(this.form.value.inicio);
-    const final = moment(this.form.value.final);
-
-    if(!this.validarDatas(inicio, final)){
+    if(!this.validarDatas(moment(this.form.value.inicio), moment(this.form.value.final))){
       return;
     }
 
@@ -48,13 +45,25 @@ export class FiltroComponent  {
 
   private validarDatas(inicio: moment.Moment , final: moment.Moment): boolean {
 
-      let diff = moment(inicio).diff(moment(final), 'd');
-      if(diff < 0 ){
-        diff = diff * -1;
+      let diff = inicio.diff(final, 'd');
+
+      if(!inicio.isValid()){
+        this.toastrService.default(`Aviso`, `O período incial não é valido` );
+        return false;
       }
 
-      if(diff > 92){
-        this.toastrService.default(`Aviso`, `O maximo período permitido é de 90 dias` );
+      if(!final.isValid()){
+        this.toastrService.default(`Aviso`, `O período final não é valido` );
+        return false;
+      }
+
+      if(inicio.isAfter(final)){
+        this.toastrService.default(`Aviso`, `O período inicial não pode ser posterior ao período final` );
+        return false;
+      }
+
+      if(diff > 90){
+        this.toastrService.default(`Aviso`, `O período máximo permitido é de 90 dias.` );
         return false;
       }
     

@@ -118,9 +118,18 @@ export class RulesDuplicateComponent {
 
   public onSubmit(): void {
     this.submitted = true;
+
+    const inicio = moment(this.dataInicio.value);
+    const final = moment(this.dataFinal.value);
+    if(inicio.isAfter(final)){
+      this.toastrService.default(`Aviso`, `O período incial não pode ser posterior ao período final` );
+      return;
+    }
+   
     if (this.form.invalid) {
       return;
     }
+
 
     this.service.save(this.form.value).subscribe(
       ()=>{

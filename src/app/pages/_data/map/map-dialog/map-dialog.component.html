@@ -1,8 +1,10 @@
 
 <nb-card>
   <nb-card-body>
-    <table class="table table-hover ">
+    <h4 *ngIf="data?.type === 'antena'">Antena</h4>
+    <h4 *ngIf="data?.type === 'fiscal'">Fiscal</h4>
 
+    <table class="table table-hover ">
 
       <tbody>
         <tr>
@@ -15,12 +17,12 @@
           <td class="align-middle">{{data?.longitude}}</td>
         </tr>
     
-        <tr>
+        <tr *ngIf="data?.type === 'antena'">
           <td class="align-middle"><b>Faixas</b></td>
           <td class="align-middle">{{data?.faixas}}</td>
         </tr>
     
-        <tr>
+        <tr *ngIf="data?.type === 'antena'">
           <td class="align-middle"><b>Registro</b></td>
           <td class="align-middle">{{data?.dataHoraInsercao}}</td>
         </tr>
@@ -29,9 +31,9 @@
     </table>
     <hr>
 
-    <table class="table table-hover ">
+    <table class="table table-hover">
 
-      <tbody>
+      <tbody *ngIf="data?.type === 'antena'">
         
         <tr>
           <td class="align-middle"><img src="assets/icon/circle/red-circle.svg" alt="..." class="rounded-circle"></td>
@@ -47,6 +49,16 @@
           <td class="align-middle"><img src="assets/icon/circle/yellow-circle.svg" alt="..." class="rounded-circle"></td>
           <td class="align-middle">Nenhum alerta ativo</td>
         </tr>
+
+      </tbody>
+      
+      <tbody *ngIf="data?.type === 'fiscal'">
+        
+        <tr>
+          <td class="align-middle"><b>Última Atualização em:</b></td>
+          <td class="align-middle">32 minutos</td>
+        </tr>
+
 
       </tbody>
     </table>

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
+import moment from 'moment';
 import { RulesService } from '../rules.service';
 
 @Component({
@@ -124,9 +125,19 @@ export class RulesAddComponent {
 
   public onSubmit(): void {
     this.submitted = true;
+
+    const inicio = moment(this.dataInicio.value);
+    const final = moment(this.dataFinal.value);
+
+    if(inicio.isAfter(final.add('1','d'))){
+      this.toastrService.default(`Aviso`, `O período incial não pode ser posterior ao período final` );
+      return;
+    }
+
     if (this.form.invalid) {
       return;
     }
+
 
     this.service.save(this.form.value).subscribe(
       (data)=>{

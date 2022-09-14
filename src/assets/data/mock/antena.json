@@ -1,6 +1,6 @@
 {
-  "antena":{
-    "points": [
+  "coordenas":{
+    "antenas": [
       { 
         "latitude": -16.6761553, 
         "longitude": -49.2886361, 
@@ -25,8 +25,41 @@
         "faixas":"BRASILIA/FORMOSA", 
         "dataHoraInsercao":"20/04/2022 18:40:41"
       }
+    ],
+    "fiscais":[
+      { 
+        "latitude": -16.4088159,  
+        "longitude": -49.8784454, 
+        "faixas":"BRASILIA/FORMOSA", 
+        "dataHoraInsercao":"20/04/2022 18:40:41"
+      },
+      { 
+        "latitude": -16.4088159,  
+        "longitude": -49.8784454, 
+        "faixas":"BRASILIA/FORMOSA", 
+        "dataHoraInsercao":"20/04/2022 18:40:41"
+      },
+      { 
+        "latitude": -16.4382875, 
+        "longitude": -49.9983406,  
+        "faixas":"BRASILIA/FORMOSA", 
+        "dataHoraInsercao":"20/04/2022 18:40:41"
+      },
+      { 
+        "latitude": -16.789665,
+        "longitude": -49.093050, 
+        "faixas":"BRASILIA/FORMOSA", 
+        "dataHoraInsercao":"20/04/2022 18:40:41"
+      },
+      { 
+        "latitude": -16.6473939,
+        "longitude": -49.0823115, 
+        "faixas":"BRASILIA/FORMOSA", 
+        "dataHoraInsercao":"20/04/2022 18:40:41"
+      }
     ]
   }
+  
 }
 
 

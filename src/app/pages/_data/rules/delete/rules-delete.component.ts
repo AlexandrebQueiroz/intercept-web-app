@@ -105,6 +105,7 @@ export class RulesDeleteComponent {
 
   public onSubmit(): void {
     this.submitted = true;
+
     if (this.form.invalid) {
       return;
     }

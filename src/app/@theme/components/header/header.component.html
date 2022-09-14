@@ -19,12 +19,14 @@
 <div class="header-container">
   <nb-actions size="small">
     <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
-      <nb-user [nbContextMenu]="userMenu"
-               nbContextMenuTag="login"
-               [onlyPicture]="false"
-               [name]="user.name"
-               [showTitle]="true"
-               [picture]="base64image">
+      <nb-user 
+        [nbContextMenu]="userMenu"
+        nbContextMenuTag="login"
+        [onlyPicture]="false"
+        title="Administrador"
+        [name]="user.name"
+        [showTitle]="true"
+        [picture]="base64image">
       </nb-user>
     </nb-action>
   </nb-actions>

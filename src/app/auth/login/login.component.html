@@ -26,6 +26,7 @@
            id="input-email"
            fieldSize="large"
            autofocus
+           placeholder="Nome:"
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
            [required]="getConfigValue('forms.validation.email.required')"
            [attr.aria-invalid]="email.invalid && email.touched ? true : null">
@@ -35,18 +36,19 @@
     <span class="label-with-link">
       <label class="label" for="input-password">Senha:</label>
     </span>
-    <input nbInput
-           fullWidth
-           [(ngModel)]="user.password"
-           #password="ngModel"
-           name="password"
-           type="password"
-           id="input-password"
-           placeholder="Password"
-           fieldSize="large"
-           [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
-           [required]="getConfigValue('forms.validation.password.required')"
-           >
+    <input 
+      nbInput
+      fullWidth
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      name="password"
+      type="password"
+      id="input-password"
+      placeholder="Password"
+      fieldSize="large"
+      [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
+      [required]="getConfigValue('forms.validation.password.required')"
+      >
   </div>
 
   <button nbButton

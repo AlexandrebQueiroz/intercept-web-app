@@ -11,7 +11,6 @@ export class FisVsSefazComponent  {
 
   public data: any;
   public loaded = false;
-  public form: FormGroup;
 
   constructor(
     public service: PassagemwayService,

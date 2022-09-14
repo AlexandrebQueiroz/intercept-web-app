@@ -67,7 +67,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         case url.includes(environment.antena.listar) && method === 'GET':{
-          return this.ok(antena.antena.points)
+          return this.ok(antena.coordenas)
         }
 
         case url.includes(environment.antena.salvar) && method === 'POST':{
