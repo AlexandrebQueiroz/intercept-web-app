@@ -27,7 +27,6 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 registerLocaleData(ptBr)
 
-
 @NgModule({
   declarations: [
     AppComponent,

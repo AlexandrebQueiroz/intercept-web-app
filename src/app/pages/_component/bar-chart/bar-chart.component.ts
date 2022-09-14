@@ -3,7 +3,8 @@ import { NbThemeService, NbColorHelper } from '@nebular/theme';
 
 @Component({
   selector: 'custom-bar-chart',
-  template: '<chart type="bar" [data]="data" [options]="options"></chart>',
+  styleUrls: ['./bar-chart.component.scss'],
+  template: '<chart type="bar" [data]="data" class="canvas" [options]="options"></chart>',
 })
 export class CustomBarChartComponent implements OnDestroy {
  

@@ -17,6 +17,7 @@ import userImage from '../../../../assets/images/user-icon.json';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
+  public width: number ; 
   userPictureOnly: boolean = false;
   hideMenuOnClick: boolean = false;
   user: any;
@@ -65,22 +66,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => this.user = users.nick);
 
-    const { xl } = this.breakpointService.getBreakpointsMap();
-    const {is} = this.breakpointService.getBreakpointsMap();
+    const { xl, lg, is } = this.breakpointService.getBreakpointsMap();
+   
+
     this.themeService.onMediaQueryChange()
       .pipe(
         map(([, currentBreakpoint]) => currentBreakpoint),
         takeUntil(this.destroy$),
       )
       .subscribe(currentBreakpoint  => {
-        this.userPictureOnly = currentBreakpoint.width < xl
+        this.width = currentBreakpoint.width 
+        this.userPictureOnly = currentBreakpoint.width < xl;
         this.hideMenuOnClick = currentBreakpoint.width <= is;
       });
 
     this.menuService.onItemClick().subscribe(() => {
-      if (this.hideMenuOnClick) {
+      if (this.width <= is) {
         this.sidebarService.collapse('menu-sidebar');
+        this.layoutService.changeLayoutSize();
       }
+      else if (this.width <= lg){
+        this.sidebarService.toggle(true, 'menu-sidebar');
+        this.sidebarService.compact('menu-sidebar');
+        this.layoutService.changeLayoutSize();
+      }
+
     });
 
     this.themeService.onThemeChange()

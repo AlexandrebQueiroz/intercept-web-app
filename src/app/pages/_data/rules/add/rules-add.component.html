@@ -9,13 +9,13 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate >
       
       <div class="row pb-3">
-        <div class="col-8">
+        <div class="col-md-8 col-sm-6 col-12">
           <label class="label">Nome:*</label>
           <input type="text" [formControl]="nome" [status]='getStatus(nome)' nbInput fullWidth placeholder="Nome">
         </div>
 
         
-        <div class="col-4">
+        <div class="col-md-4 col-sm-6 col-12 ">
           <label class="label">Tipo:*</label>
           <nb-select fullWidth  [formControl]="tipo" [status]='getStatus(tipo)' placeholder="Tipo">
             <nb-option [value]='null'>Selecione</nb-option>
@@ -35,7 +35,7 @@
 
 
       <div class="row pb-3">
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Importância:*</label>
           <nb-select fullWidth placeholder="Tipo" [formControl]="importancia" [status]='getStatus(importancia)' >
             <nb-option value="1">1</nb-option>
@@ -51,7 +51,7 @@
           </nb-select>
         </div>
       
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Menor esforço:*</label>
           <nb-select fullWidth selected="1" placeholder="Tipo" [formControl]="menorEsforco" [status]='getStatus(menorEsforco)'>
             <nb-option value="1">1</nb-option>
@@ -67,13 +67,13 @@
           </nb-select>
         </div>
 
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Data de validade (Inicio):*</label>
           <input nbInput fullWidth [nbDatepicker]="inicioPicker" placeholder="Inicio" [formControl]="dataInicio" [status]='getStatus(dataInicio)'>
           <nb-datepicker #inicioPicker></nb-datepicker>
         </div>
         
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Data de validade (Final):*</label>
           <input nbInput fullWidth [nbDatepicker]="finalPicker"  placeholder="Fim" [formControl]="dataFinal" [status]='getStatus(dataFinal)'>
           <nb-datepicker #finalPicker></nb-datepicker>
@@ -82,7 +82,7 @@
 
       <div class="row pb-3">
         
-        <div class="col-xl-3 col-md-3 col-12">
+        <div class="col-md-4 col-sm-6 col-12">
           <label class="label">Adicionar produto:*</label>
           <button type="button"  nbButton outline fullWidth status="basic" (click)="adicionarProduto()">Adicionar Produto</button>
         </div>
@@ -105,7 +105,7 @@
 
       <div class="row pb-3">
 
-        <div class="col-xl-3 col-md-6 col-12">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Operador:*</label>
           <nb-select fullWidth selected="1" placeholder="Tipo" [compareWith]="compareById"  [formControl]="operador" [status]='getStatus(operador)'>
             <nb-option *ngFor="let op of sqlOperations" [value]=op>{{op.title}}</nb-option>
@@ -113,17 +113,17 @@
 
         </div>
     
-        <div class="col-xl-3 col-md-6 col-12">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">NCM:</label>
           <input type="text" nbInput fullWidth placeholder="NCM"  [formControl]="ncm" [status]='getStatus(ncm)'>
         </div>
 
-        <div class="col-xl-3 col-md-6 col-12">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Valor:*</label>
           <input type="text" nbInput fullWidth placeholder="Valor"  [formControl]="valor" [status]='getStatus(valor)'>
         </div>
         
-        <div class="col-xl-3 col-md-6 col-12">
+        <div class="col-md-3 col-sm-6 col-12">
           <label class="label">Percurso:*</label>
           <input type="text" nbInput fullWidth placeholder="Percurso"  [formControl]="percurso" [status]='getStatus(percurso)'>
         </div>
@@ -132,11 +132,11 @@
       
       <hr/>
 
-      <div class="row pb-3" >
-        <div class="col-4">
+      <div class="row " >
+        <div class="col-lg-4 col-md-6 col-12 pb-3">
           <button type="button" nbButton outline fullWidth status="basic" (click)="voltar()">Voltar</button>
         </div>
-        <div class="offset-4 col-4">
+        <div class="offset-lg-4 col-lg-4 col-md-6 col-12 pb-3">
           <button type="submit" nbButton outline fullWidth status="success">Adicionar</button>
         </div>
       </div>

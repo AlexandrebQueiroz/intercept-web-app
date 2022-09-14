@@ -15,7 +15,6 @@ export const routes: Routes = [
       .then(m => m.AuthModule),
   },
 
-
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];

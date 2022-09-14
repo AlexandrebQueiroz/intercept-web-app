@@ -9,12 +9,12 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate  [nbSpinner]="loading" >
    
       <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-12">
           <label class="label">Latitude:*</label>
           <input type="text" nbInput fullWidth placeholder="Latitude" [formControl]="latitude" [status]='getStatus(latitude)'>
         </div>
 
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-12">
           <label class="label">Longuitude:*</label>
           <input type="text" nbInput fullWidth placeholder="Longuitude" [formControl]="longuitude"  [status]='getStatus(longuitude)'>
         </div>
@@ -23,21 +23,24 @@
 
       <div class="row">
 
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-12">
           <label class="label">Sentido:*</label>
           <input type="text" nbInput fullWidth placeholder="Sentido" [formControl]="sentido" [status]='getStatus(sentido)'>
         </div>
 
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-12">
           <label class="label">Codigo Local:*</label> 
           <input type="text" nbInput fullWidth placeholder="Codigo Local" [formControl]="codigoLocal" [status]='getStatus(codigoLocal)'>
         </div>
+      </div>
 
-        <div class="col-4">
+      <div class="row">
+        <div class="offset-lg-8 col-lg-4 offset-md-6 col-md-6 col-12">
           <label class="label">Validar:</label>
           <button nbButton outline type="submit" fullWidth status="basic">Validar</button>
         </div>
       </div>
+
     </form>
   </nb-card-body>
 </nb-card>
@@ -69,7 +72,7 @@
 
   </nb-card-body>
   <nb-card-body>
-    <div class="offset-8 col-4">
+    <div class="offset-lg-8 col-lg-4 offset-md-6 col-md-6 col-12">
       <label class="label">Gravar:</label>
       <button nbButton outline type="submit"  (click)="enviar()" fullWidth status="success">Gravar</button>
     </div>

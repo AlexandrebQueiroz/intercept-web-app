@@ -1,0 +1,11 @@
+@import '../../../../app/@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+    
+}
+.canvas {
+    min-width: 879px;
+    max-height: 438px;
+}

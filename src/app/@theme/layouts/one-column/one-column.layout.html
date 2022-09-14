@@ -3,8 +3,8 @@
     <ngx-header></ngx-header>
   </nb-layout-header>
 
-  <nb-sidebar  class="menu-sidebar" tag="menu-sidebar" responsive >
-    <div class="container-fluid min-vh-100 d-flex flex-column"  (swipeleft)=onSwipeLeft($event) >
+  <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive >
+    <div class="container-fluid min-vh-100 d-flex flex-column"  (swipeleft)=onSwipeLeft($event) (swiperight)="onSwipeRight($event)" >
       <div class="row flex-grow-1" style="padding: 0">
           <div class="col-12" style="padding: 0">
             <ng-content select="nb-menu" ></ng-content>
@@ -18,4 +18,3 @@
   </nb-layout-column>
 
 </nb-layout>
-`
