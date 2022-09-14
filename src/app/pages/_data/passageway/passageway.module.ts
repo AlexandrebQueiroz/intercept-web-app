@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NbDateFnsDateModule } from '@nebular/date-fns';
 import { NbMomentDateModule } from '@nebular/moment';
-import { NbAccordionModule, NbButton, NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule, NbSpinnerComponent, NbSpinnerModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbInputModule, NbSpinnerModule } from '@nebular/theme';
 import { CustomChartsModule } from '../../_component/custom-charts.module';
 import { FiltroModule } from '../../_filtro/filtro.module';
 import { FisVsSefazComponent } from './fis-vs-sefaz/fis-vs-sefaz.component';

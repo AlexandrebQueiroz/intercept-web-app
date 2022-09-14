@@ -23,6 +23,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NgxMaskModule } from 'ngx-mask';
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -51,11 +52,12 @@ registerLocaleData(ptBr)
       parseOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
       formatOptions: { useAdditionalWeekYearTokens: true, useAdditionalDayOfYearTokens: true },
     },
-  ),
+    ),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    NgxMaskModule.forRoot(),
   ],
   bootstrap: [AppComponent],
   providers:[ 

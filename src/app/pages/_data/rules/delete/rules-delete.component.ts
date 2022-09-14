@@ -38,56 +38,56 @@ export class RulesDeleteComponent {
     this.form = this.fb.group({
 
       nome: new FormControl(
-        data?.nome, [
+        {value: data?.nome, disabled: true}, [
           Validators.required,
       ]),
 
       descricao: new FormControl(
-        data?.descricao, [
+        {value: data?.descricao, disabled: true}, [
           Validators.required,
       ]),
       
       tipo: new FormControl(
-        data?.tipo, [
+        {value: data?.tipo, disabled: true}, [
           Validators.required,
       ]),
       
       importancia: new FormControl(
-        data?.importancia, [
+        {value: data?.importancia, disabled: true}, [
           Validators.required,
       ]),
     
       menorEsforco: new FormControl(
-        data?.menorEsforco , [
+        {value: data?.menorEsforco, disabled: true}, [
           Validators.required,
       ]),
 
       dataInicio: new FormControl(
-        dataInicio, [
+        {value: dataInicio, disabled: true}, [
           Validators.required,
       ]),
 
       dataFinal: new FormControl(
-        dataFinal, [
+        {value: dataFinal, disabled: true}, [
           Validators.required,
       ]),
       
       operador: new FormControl(
-        data?.operador, [
+        {value: data?.operador, disabled: true}, [
           Validators.required,
       ]),
 
       valor: new FormControl(
-        data?.valor, [
+        {value: data?.valor, disabled: true}, [
           Validators.required,
       ]),
 
       ncm: new FormControl(
-        data?.ncm, [
+        {value: data?.ncm, disabled: true}, [
       ]),
 
       percurso: new FormControl(
-        data?.percurso, [
+        {value: data?.percurso, disabled: true}, [
         Validators.required,
       ]),
       
@@ -95,7 +95,7 @@ export class RulesDeleteComponent {
     });
 
     data.produtos?.forEach(p => {
-      this.produtos.push(new FormControl(p.descricao, Validators.required));
+      this.produtos.push(new FormControl( {value: p?.descricao, disabled: true}, Validators.required));
     });
   }
 
