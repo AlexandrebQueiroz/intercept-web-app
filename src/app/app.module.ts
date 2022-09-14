@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CoreModule } from './@core/core.module';
-import { ThemeModule } from './@theme/theme.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import ptBr from '@angular/common/locales/pt';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { NbDateFnsDateModule } from '@nebular/date-fns';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -13,18 +13,20 @@ import {
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
-  NbWindowModule,
+  NbWindowModule
 } from '@nebular/theme';
+import { NgxMaskModule } from 'ngx-mask';
+import { environment } from '../environments/environment';
+import { CoreModule } from './@core/core.module';
 import { fakeBackendProvider } from './@theme/components/service/fakebackend.service';
-import { registerLocaleData } from '@angular/common';
-import ptBr from '@angular/common/locales/pt';
-import { NbDateFnsDateModule } from '@nebular/date-fns';
+import { ThemeModule } from './@theme/theme.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HammerConfig } from './app.hamer-gesture';
 import { AuthGuard } from './auth/auth-guard.service';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { NgxMaskModule } from 'ngx-mask';
 registerLocaleData(ptBr)
+
 
 @NgModule({
   declarations: [
@@ -58,13 +60,18 @@ registerLocaleData(ptBr)
       registrationStrategy: 'registerWhenStable:30000'
     }),
     NgxMaskModule.forRoot(),
+    HammerModule,
   ],
   bootstrap: [AppComponent],
   providers:[ 
     AuthGuard, 
     fakeBackendProvider,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: LOCALE_ID, useValue: 'pt' }
+    { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    }
   ]
 })
 export class AppModule {

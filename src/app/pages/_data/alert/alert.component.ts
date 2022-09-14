@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { AlertService } from './alert.service';
 
 @Component({
@@ -29,6 +28,10 @@ export class AlertComponent implements OnInit {
         this.loaded = true;
       }
     );
+  }
+
+  onTap($event){
+    console.log('meu teste');
   }
 
 }
