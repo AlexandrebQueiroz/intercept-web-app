@@ -45,8 +45,7 @@ export class FiltroComponent  {
 
   private validarDatas(inicio: moment.Moment , final: moment.Moment): boolean {
 
-      let diff = inicio.diff(final, 'd');
-
+     
       if(!inicio.isValid()){
         this.toastrService.default(`Aviso`, `O período incial não é valido` );
         return false;
@@ -62,6 +61,7 @@ export class FiltroComponent  {
         return false;
       }
 
+      let diff = final.diff(inicio, 'd');
       if(diff > 90){
         this.toastrService.default(`Aviso`, `O período máximo permitido é de 90 dias.` );
         return false;
